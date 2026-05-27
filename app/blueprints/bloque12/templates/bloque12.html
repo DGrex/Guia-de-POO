@@ -1,83 +1,189 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 12: Manejo de Excepciones en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 12: Excepciones en Python</h2>
 
-<section class="teoria">
-    <h3>¿Qué son las excepciones?</h3>
-    <p>
-        Una <strong>excepción</strong> ocurre cuando se produce un error en tiempo de ejecución.  
-        El manejo de excepciones permite que el programa no se detenga y pueda reaccionar al error.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 12</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Manejo de<br>
+      <span class="text-gradient">Excepciones</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Aprende a construir aplicaciones robustas, tolerantes a fallos y profesionales.
+      Descubre cómo interceptar anomalías lógicas y errores en tiempo de ejecución utilizando la estructura de control predictiva <code>try-except</code>.
     </p>
 
-    <h3>Estructura completa</h3>
-    <div class="code-editor">
-<pre><code class="python">
-try:
-    # Código que puede fallar
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">excepciones_full.py</span>
+        <button class="btn-copy" data-target="code-exceptions-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-exceptions-hero"><code class="language-python">try:
     numero = int("abc")
 except ValueError as e:
-    # Manejo del error
     print("Error de conversión:", e)
 else:
-    # Se ejecuta si NO hubo error
     print("Conversión exitosa")
 finally:
-    # Se ejecuta SIEMPRE
     print("Bloque finally ejecutado")
 </code></pre>
     </div>
 
-    <h3>Tipos de errores comunes</h3>
-    <ul>
-        <li><code>ValueError</code> → valor inválido (ej. int("abc"))</li>
-        <li><code>TypeError</code> → tipo incorrecto (ej. str + int)</li>
-        <li><code>IndexError</code> → índice fuera de rango</li>
-        <li><code>KeyError</code> → clave inexistente en dict/set</li>
-        <li><code>ZeroDivisionError</code> → división entre cero</li>
-        <li><code>FileNotFoundError</code> → archivo no encontrado</li>
-    </ul>
+    <div class="hero__pills">
+      <span class="pill pill--amber">try / except</span>
+      <span class="pill pill--green">finally</span>
+      <span class="pill pill--blue">ValueError</span>
+      <span class="pill pill--purple">Robustez</span>
+    </div>
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>¿Por qué capturar errores?</strong> Una excepción es un evento anómalo que interrumpe el flujo normal de las instrucciones. Capturarlas de manera preventiva asegura que el software responda con gracia y elegancia a fallos imprevistos de datos o entorno, evitando un cierre inesperado de la aplicación.
+    </div>
+  </div>
+</section>
 
-    <h4>Ejercicio 1: Capturar ValueError</h4>
-    <div class="code-editor">
-<pre><code class="python">
-try:
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">#️⃣</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">Catálogo de Errores Comunes en Python</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+        Reconocer los tipos de excepciones integrados te permitirá diseñar bloques <code>except</code> específicos y atómicos:<br><br>
+        • <code>ValueError</code>: Ocurre cuando un tipo de dato recibe un valor inapropiado (ej. intentar convertir <code>int("abc")</code>).<br>
+        • <code>TypeError</code>: Surge al combinar u operar variables de naturalezas incompatibles (ej. concatenar un entero y un string).<br>
+        • <code>IndexError</code>: Se lanza cuando se intenta acceder a un índice numérico inexistente o fuera de los límites de una lista.<br>
+        • <code>KeyError</code>: Se produce al buscar una palabra clave no registrada dentro de las propiedades de un diccionario.<br>
+        • <code>ZeroDivisionError</code>: Error matemático generado al intentar realizar una operación de división aritmética entre cero.<br>
+        • <code>FileNotFoundError</code>: Excepción lanzada por el sistema de archivos cuando un archivo en disco no puede ser localizado.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona la manipulación controlada de ingresos de usuario, desbordamiento de índices e intercepciones condicionales múltiples.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">📥</div>
+      <h3 class="block-card__title">Ejercicio 1: Sanitización y captura de entradas inválidas</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Previene la inserción de caracteres alfabéticos dentro de conversiones aritméticas numéricas explícitas de terminal.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">captura_valor.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">try:
     numero = int(input("Ingrese un número: "))
     print("Número ingresado:", numero)
 except ValueError:
     print("Error: Debe ingresar un número válido")
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Capturar IndexError</h4>
-    <div class="code-editor">
-<pre><code class="python">
-lista = [1, 2, 3]
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">💥</div>
+      <h3 class="block-card__title">Ejercicio 2: Validación predictiva de límites indexados</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Controla el acceso seguro a posiciones avanzadas de un arreglo dinámico mitigando excepciones de desbordamiento.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">control_indice.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">lista = [1, 2, 3]
 try:
     print(lista[5])
 except IndexError:
     print("Error: índice fuera de rango")
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Manejar múltiples excepciones</h4>
-    <div class="code-editor">
-<pre><code class="python">
-try:
-    num = int("abc")  # ValueError
-    resultado = 10 / 0  # ZeroDivisionError
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">🛡️</div>
+      <h3 class="block-card__title">Ejercicio 3: Arquitectura de bloques con múltiples excepciones</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Encadena de forma secuencial múltiples bloques de captura para responder de manera atómica a diferentes escenarios de error.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">multi_excepciones.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">try:
+    num = int("abc")     # Genera ValueError
+    resultado = 10 / 0   # Genera ZeroDivisionError
 except ValueError:
     print("Error de conversión")
 except ZeroDivisionError:
     print("Error: división entre cero")
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

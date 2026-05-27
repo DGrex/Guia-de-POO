@@ -1,18 +1,50 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 8: Listas en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 8: Listas en Python</h2>
 
-<section class="teoria">
-    <h3>¿Qué son las listas?</h3>
-    <p>
-        Una <strong>lista</strong> es una estructura de datos que permite almacenar múltiples valores en una sola variable.
-        Se definen con corchetes <code>[]</code> y pueden contener distintos tipos de datos.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 08</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Listas en<br>
+      <span class="text-gradient">Python</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Aprende a gestionar colecciones indexadas de datos de forma dinámica. 
+      Descubre cómo declarar secuencias mutables utilizando corchetes <code>[]</code>, acceder a sus índices y manipular arreglos de elementos con alta eficiencia.
     </p>
 
-    <div class="code-editor">
-<pre><code class="python">
-# Definimos una lista de números
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">listas_basicas.py</span>
+        <button class="btn-copy" data-target="code-listas-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-listas-hero"><code class="language-python"># Definimos una lista de números
 numeros = [1, 2, 3, 4, 5]
 
 # Mostramos la lista completa
@@ -25,15 +57,64 @@ print(numeros[0])  # Salida: 1
 print(numeros[-1])  # Salida: 5
 </code></pre>
     </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">list[]</span>
+      <span class="pill pill--green">append()</span>
+      <span class="pill pill--blue">Slicing</span>
+      <span class="pill pill--purple">Mutabilidad</span>
+    </div>
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>¿Qué es una lista?</strong> Es una estructura de datos ordenada y mutable que permite agrupar múltiples objetos en una sola variable. A diferencia de otros lenguajes, en Python las listas pueden contener de manera simultánea elementos de diferentes tipos de datos.
+    </div>
+  </div>
+</section>
 
-    <h4>Ejercicio 1: Agregar y eliminar elementos de una lista</h4>
-    <div class="code-editor">
-<pre><code class="python">
-frutas = ["manzana", "banana", "naranja"]
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">#️⃣</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">Características Fundamentales</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+        Para sacar el máximo provecho de las colecciones indexadas, recuerda tres pilares clave:<br><br>
+        • <code>Ordenadas</code>: Mantienen estrictamente la secuencia original en la que fueron guardados sus ítems, basándose en índices numéricos desde el cero.<br>
+        • <code>Mutables</code>: Su contenido puede alterarse de forma libre en tiempo de ejecución (añadir, remover o reemplazar elementos) sin alterar su identidad original.<br>
+        • <code>Indexación Negativa</code>: Python permite acceder desde el extremo final hacia atrás de forma nativa utilizando números negativos (donde <code>-1</code> representa la última posición).
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona métodos nativos de inserción, extracción cíclica y particiones dinámicas mediante rebanado de índices.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">📦</div>
+      <h3 class="block-card__title">Ejercicio 1: Manipulación de ítems (Insertar y Eliminar)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Utiliza métodos nativos integrados para alterar dinámicamente el tamaño y el contenido interno de un arreglo de cadenas.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">modifica_lista.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">frutas = ["manzana", "banana", "naranja"]
 
 # Agregar un elemento al final
 frutas.append("uva")
@@ -43,12 +124,21 @@ print(frutas)  # Salida: ['manzana', 'banana', 'naranja', 'uva']
 frutas.remove("banana")
 print(frutas)  # Salida: ['manzana', 'naranja', 'uva']
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Recorrer una lista con for</h4>
-    <div class="code-editor">
-<pre><code class="python">
-colores = ["rojo", "verde", "azul"]
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🔁</div>
+      <h3 class="block-card__title">Ejercicio 2: Iteración secuencial de colecciones</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Recorre ordenadamente cada casilla de la lista extrayendo sus valores singulares mediante una estructura de control iterativa.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">recorre_lista.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">colores = ["rojo", "verde", "azul"]
 
 for color in colores:
     print("Color:", color)
@@ -56,14 +146,23 @@ for color in colores:
 # Salida:
 # Color: rojo
 # Color: verde
-# Color: azul
+# Azul color: azul
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Uso de slicing (rebanado)</h4>
-    <div class="code-editor">
-<pre><code class="python">
-numeros = [10, 20, 30, 40, 50]
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">✂️</div>
+      <h3 class="block-card__title">Ejercicio 3: Segmentación avanzada mediante Slicing</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Aplica delimitadores de rangos de índices (<i>sub-listas</i>) para seccionar subconjuntos iniciales y terminales de un arreglo.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">slicing_listas.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">numeros = [10, 20, 30, 40, 50]
 
 # Obtener los primeros 3 elementos
 print(numeros[:3])  # Salida: [10, 20, 30]
@@ -71,9 +170,28 @@ print(numeros[:3])  # Salida: [10, 20, 30]
 # Obtener los últimos 2 elementos
 print(numeros[-2:])  # Salida: [40, 50]
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

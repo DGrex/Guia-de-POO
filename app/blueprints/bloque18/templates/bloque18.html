@@ -1,30 +1,117 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 18: Principios fundamentales de POO y Conceptos Avanzados{% endblock %}
 
 {% block content %}
-<h2>Bloque 18: Principios de POO y conceptos avanzados</h2>
 
-<section class="teoria">
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 18</span>
+      <span class="badge badge--green">✓ Pilares Fundamentales</span>
+      <span class="badge badge--blue">POO Core</span>
+    </div>
 
-    <h3>1. Abstracción</h3>
-    <p><strong>Concepto:</strong> Mostrar lo esencial y ocultar lo innecesario. El usuario interactúa con métodos sin conocer la implementación interna.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Calculadora:
+    <h1 class="hero__title fade-up">
+      Principios de<br>
+      <span class="text-gradient">la POO</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Domina los pilares esenciales del desarrollo de software robusto.
+      Explora la <b>Abstracción</b>, <b>Encapsulamiento</b>, <b>Herencia</b> y <b>Polimorfismo</b>, junto con herramientas avanzadas del lenguaje como propiedades dinámicas y contratos de diseño mediante clases abstractas.
+    </p>
+
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">polimorfismo_core.py</span>
+        <button class="btn-copy" data-target="code-poo-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-poo-hero"><code class="language-python">class Animal:
+    def sonido(self): pass
+
+class Perro(Animal):
+    def sonido(self): print("Ladra")
+
+class Gato(Animal):
+    def sonido(self): print("Maúlla")
+
+# Despacho dinámico de métodos
+for animal in [Perro(), Gato()]:
+    animal.sonido()
+</code></pre>
+    </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">Abstracción</span>
+      <span class="pill pill--green">Encapsulamiento</span>
+      <span class="pill pill--blue">Herencia</span>
+      <span class="pill pill--purple">Polimorfismo</span>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>El paradigma POO:</strong> Modelar software basándose en clases y objetos permite agrupar datos (atributos) y comportamientos (métodos) en entidades únicas y autocontenidas, facilitando la escalabilidad, modularidad y el mantenimiento a largo plazo de aplicaciones complejas.
+    </div>
+  </div>
+</section>
+
+<section class="blocks-section" id="teoria-pilares" style="padding-bottom: 0;">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Teoría</span>
+    <h2 class="section-header__title">Los 4 Pilares y Conceptos Avanzados</h2>
+  </div>
+
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">1. Abstracción</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Consiste en aislar y mostrar únicamente los elementos esenciales al usuario, ocultando los complejos procesos lógicos o mecánicos internos detrás de una interfaz simple y clara.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">abstraccion.py</span><button class="btn-copy" data-target="code-t-abstraccion">Copiar</button></div>
+        <pre id="code-t-abstraccion" style="margin: 0;"><code class="language-python">class Calculadora:
     def sumar(self, a, b):
         return a + b
 
 calc = Calculadora()
-print(calc.sumar(5, 3))  # 8
+print(calc.sumar(5, 3))  # El usuario solo invoca el método. Salida: 8
 </code></pre>
+      </div>
     </div>
 
-    <h3>2. Encapsulamiento</h3>
-    <p><strong>Concepto:</strong> Proteger datos controlando acceso a atributos mediante métodos.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Cuenta:
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">2. Encapsulamiento</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Restringe el acceso directo a los datos y componentes internos de un objeto para prevenir modificaciones accidentales o maliciosas, forzando a que las alteraciones pasen por métodos de control perimetral.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">encapsulamiento.py</span><button class="btn-copy" data-target="code-t-encapsulamiento">Copiar</button></div>
+        <pre id="code-t-encapsulamiento" style="margin: 0;"><code class="language-python">class Cuenta:
     def __init__(self):
-        self._saldo = 0  # atributo protegido
+        self._saldo = 0  # Guion bajo (_) denota convención de atributo protegido
 
     def depositar(self, valor):
         self._saldo += valor
@@ -34,58 +121,66 @@ class Cuenta:
 
 c = Cuenta()
 c.depositar(100)
-print(c.ver_saldo())  # 100
+print(c.ver_saldo())  # Salida: 100
 </code></pre>
+      </div>
     </div>
 
-    <h3>3. Herencia</h3>
-    <p><strong>Concepto:</strong> Reutilizar código en clases hijas que heredan atributos y métodos de la clase padre.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Persona:
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">3. Herencia</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Mecanismo jerárquico que permite a una clase secundaria o "hija" adquirir e implementar los atributos y rutinas de una superclase o "padre", promoviendo la reutilización de código.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">herencia.py</span><button class="btn-copy" data-target="code-t-herencia">Copiar</button></div>
+        <pre id="code-t-herencia" style="margin: 0;"><code class="language-python">class Persona:
     def __init__(self, nombre):
         self.nombre = nombre
 
 class Cliente(Persona):
     def __init__(self, nombre, correo):
-        super().__init__(nombre)
+        super().__init__(nombre)  # Inicializa la superclase
         self.correo = correo
 
 cli = Cliente("Daniel", "d@mail.com")
-print(cli.nombre, cli.correo)
+print(cli.nombre, cli.correo)  # Salida: Daniel d@mail.com
 </code></pre>
+      </div>
     </div>
 
-    <h3>4. Polimorfismo</h3>
-    <p><strong>Concepto:</strong> Un mismo método puede tener distintos comportamientos según la clase que lo implemente.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Animal:
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">4. Polimorfismo</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Capacidad que poseen diferentes objetos de responder al mismo llamado o firma de método implementando comportamientos internos morfológicamente distintos según su naturaleza.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">polimorfismo.py</span><button class="btn-copy" data-target="code-t-polimorfismo">Copiar</button></div>
+        <pre id="code-t-polimorfismo" style="margin: 0;"><code class="language-python">class Animal:
     def sonido(self): pass
 
 class Perro(Animal):
     def sonido(self): print("Ladra")
 
 class Gato(Animal):
-    def sonido(self): print("Maulla")
+    def sonido(self): print("Maúlla")
 
 class Vaca(Animal):
     def sonido(self): print("Muge")
 
 for animal in [Perro(), Gato(), Vaca()]:
     animal.sonido()
-# Salida:
-# Ladra
-# Maulla
-# Muge
 </code></pre>
+      </div>
     </div>
 
-    <h3>5. Property</h3>
-    <p><strong>Concepto:</strong> Controlar acceso a atributos con validación usando <code>@property</code> y <code>@setter</code>.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Producto:
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">5. Manejo de Propiedades Dinámicas (@property)</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Permite transformar métodos en atributos legibles directos, interceptando sus lecturas, mutaciones (setters) y eliminaciones para inyectar validaciones o formateos en tiempo real.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">propiedades.py</span><button class="btn-copy" data-target="code-t-property">Copiar</button></div>
+        <pre id="code-t-property" style="margin: 0;"><code class="language-python">class Producto:
     def __init__(self, nombre, precio):
         self._nombre = nombre
         self._precio = precio
@@ -97,20 +192,24 @@ class Producto:
     @precio.setter
     def precio(self, valor):
         if valor < 0:
-            raise ValueError("Precio inválido")
+            raise ValueError("Precio inválido: no puede ser negativo")
         self._precio = valor
 
 p = Producto("Laptop", 900)
-p.precio = 1200
-print(p.precio)  # 1200
+p.precio = 1200  # Invoca automáticamente al @precio.setter
+print(p.precio)  # Invoca automáticamente al @property getter. Salida: 1200
 </code></pre>
+      </div>
     </div>
 
-    <h3>6. Clases abstractas</h3>
-    <p><strong>Concepto:</strong> Definen contratos de comportamiento que deben implementarse en clases hijas.</p>
-    <div class="code-editor">
-<pre><code class="python">
-from abc import ABC, abstractmethod
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">6. Clases Abstractas e Interfaces de Diseño (ABC)</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Clases estructurales de guía que no admiten instancias directas. Actúan como contratos estrictos de arquitectura, obligando a las clases herederas a codificar de forma explícita los métodos decorados con <code>@abstractmethod</code>.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">clases_abstractas.py</span><button class="btn-copy" data-target="code-t-abc">Copiar</button></div>
+        <pre id="code-t-abc" style="margin: 0;"><code class="language-python">from abc import ABC, abstractmethod
 
 class Figura(ABC):
     @abstractmethod
@@ -120,23 +219,40 @@ class Triangulo(Figura):
     def __init__(self, base, altura):
         self.base = base
         self.altura = altura
-    def area(self):
+        
+    def area(self):  # Implementación obligatoria de la firma del contrato
         return (self.base * self.altura) / 2
 
 t = Triangulo(10, 5)
-print(t.area())  # 25.0
+print(t.area())  # Salida: 25.0
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona el cumplimiento de estructuras abstractas contractuales, sanitizaciones con getters/setters e interfaces polimórficas.</p>
+  </div>
 
-    <h4>Ejercicio 1: Abstracción</h4>
-    <p>Crear clase <code>Triangulo</code> que implemente <code>area()</code> de una clase abstracta <code>Figura</code>.</p>
-    <div class="code-editor">
-<pre><code class="python">
-from abc import ABC, abstractmethod
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">📐</div>
+      <h3 class="block-card__title">Ejercicio 1: Cumplimiento de Abstracción Estricta contractual</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Crea una jerarquía de diseño geométrico obligando a la subclase a resolver ecuaciones matemáticas perimetrales complejas.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">figura_triangulo.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">from abc import ABC, abstractmethod
 
 class Figura(ABC):
     @abstractmethod
@@ -150,15 +266,23 @@ class Triangulo(Figura):
         return (self.base * self.altura) / 2
 
 t = Triangulo(10, 5)
-print(t.area())  # 25.0
+print(t.area())  # Salida: 25.0
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Property con validación</h4>
-    <p>Agregar <code>@property</code> con setter a <code>Producto</code> para validar precio >= 0.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Producto:
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🛡️</div>
+      <h3 class="block-card__title">Ejercicio 2: Encapsulamiento Inteligente mediante Descriptores (Property)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Protege el estado interno del valor de un objeto mercantil lanzando excepciones inmediatas ante cualquier intento de asignación negativa.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">producto_validado.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">class Producto:
     def __init__(self, nombre, precio):
         self._nombre = nombre
         self._precio = precio
@@ -173,15 +297,23 @@ class Producto:
 
 p = Producto("Laptop", 900)
 p.precio = 1200
-print(p.precio)  # 1200
+print(p.precio)  # Salida: 1200
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Polimorfismo</h4>
-    <p>Jerarquía: <code>Animal -> Perro, Gato, Vaca</code>, cada uno con su propio <code>sonido()</code>.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Animal: 
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">🎭</div>
+      <h3 class="block-card__title">Ejercicio 3: Comportamientos Diferenciados por Despacho Dinámico</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Orquesta una colección heterogénea de objetos biológicos ejecutando de forma unificada su interfaz sonora heredada.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">orquesta_polimorfica.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">class Animal: 
     def sonido(self): pass
 
 class Perro(Animal): 
@@ -193,11 +325,36 @@ class Gato(Animal):
 class Vaca(Animal): 
     def sonido(self): print("Muge")
 
+# Ejecución secuencial polimórfica
 for animal in [Perro(), Gato(), Vaca()]:
     animal.sonido()
+# Salida:
+# Ladra
+# Maulla
+# Muge
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

@@ -2,15 +2,100 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Guía POO en Python</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}PyOOP — Guía de POO en Python{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <!-- Highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" defer></script>
+    <script defer>document.addEventListener('DOMContentLoaded', () => { hljs.highlightAll(); });</script>
   </head>
   <body>
-    <header>
-        <h1>Guía de POO en Python</h1>
-        <p>Desarrollado por Denis Goyes Morán</p>
-    </header>    
-    <main>{% block content %}{% endblock %}</main>
+    <!-- Ambient background particles -->
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb--amber" aria-hidden="true"></div>
+    <div class="glow-orb glow-orb--green" aria-hidden="true"></div>
+
+    <!-- ===== STICKY NAVBAR ===== -->
+    <header class="navbar" id="navbar">
+      <div class="navbar__inner">
+        <a href="{{ url_for('index') }}" class="navbar__logo">
+          <span class="navbar__logo-icon">⬡</span>
+          <span class="navbar__logo-text">Py<strong>OOP</strong></span>
+          <span class="navbar__badge">v2.0</span>
+        </a>
+
+        <nav class="navbar__links" aria-label="Navegación principal">
+          <a href="{{ url_for('index') }}" class="nav-link">Inicio</a>
+          <a href="{{ url_for('index') }}#bloques" class="nav-link">Bloques</a>
+          <a href="{{ url_for('index') }}#recursos" class="nav-link">Recursos</a>
+        </nav>
+
+
+
+        <!-- Mobile toggle -->
+        <button class="navbar__toggle" id="navToggle" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="navbar__mobile" id="mobileMenu">
+        <a href="{{ url_for('index') }}" class="nav-link">Inicio</a>
+        <a href="{{ url_for('index') }}#bloques" class="nav-link">Bloques</a>
+        <a href="{{ url_for('index') }}#recursos" class="nav-link">Recursos</a>
+        <a href="{{ url_for('bloque0.home') }}" class="btn btn--primary btn--sm">Empezar →</a>
+      </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="navbar__logo-icon">⬡</span>
+          <span>Py<strong>OOP</strong></span>
+        </div>
+        <p class="footer__copy">Guía educativa de Programación Orientada a Objetos en Python · 2026</p>
+        <div class="footer__links">
+          <a href="{{ url_for('index') }}">Inicio</a>
+          <a href="{{ url_for('bloque0.home') }}">Bloque 0</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Navbar scroll effect
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('navbar--scrolled', window.scrollY > 20);
+      });
+
+      // Mobile toggle
+      const toggle = document.getElementById('navToggle');
+      const menu = document.getElementById('mobileMenu');
+      toggle?.addEventListener('click', () => {
+        menu.classList.toggle('navbar__mobile--open');
+        toggle.classList.toggle('navbar__toggle--open');
+      });
+
+      // Fade-in on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+    </script>
   </body>
 </html>
-

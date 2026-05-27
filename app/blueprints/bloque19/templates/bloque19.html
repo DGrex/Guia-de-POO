@@ -1,41 +1,128 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 19: Relaciones UML en Código Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 19: Relaciones UML en código</h2>
 
-<section class="teoria">
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 19</span>
+      <span class="badge badge--green">✓ Modelado de Software</span>
+      <span class="badge badge--blue">UML a Código</span>
+    </div>
 
-    <h3>1. Asociación</h3>
-    <p><strong>Concepto:</strong> Una clase usa a otra, pero no depende de ella para existir.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Profesor:
+    <h1 class="hero__title fade-up">
+      Relaciones UML<br>
+      <span class="text-gradient">en Código</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Traduce diagramas de clases a arquitecturas orientadas a objetos precisas.
+      Comprende cómo estructurar acoplamientos y dependencias de software dominando la semántica técnica de la <b>Asociación</b>, <b>Agregación</b>, <b>Composición</b> y la <b>Herencia</b>.
+    </p>
+
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">composicion_uml.py</span>
+        <button class="btn-copy" data-target="code-uml-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-uml-hero"><code class="language-python">class Motor:
+    def __init__(self, tipo):
+        self.tipo = tipo
+
+class Auto:
+    def __init__(self, modelo):
+        self.modelo = modelo
+        # Composición: El ciclo de vida del Motor está ligado al Auto
+        self.motor = Motor("Gasolina")
+
+a = Auto("Toyota")
+print(a.motor.tipo)  # Salida: Gasolina
+</code></pre>
+    </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">Asociación</span>
+      <span class="pill pill--green">Agregación</span>
+      <span class="pill pill--blue">Composición</span>
+      <span class="pill pill--purple">Generalización</span>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>UML en el mundo real:</strong> El Lenguaje Unificado de Modelado (UML) define cómo interactúan los objetos entre sí. Aunque en Python todas las variables guardan referencias a posiciones de memoria, la forma en que los objetos se instancian, inyectan o destruyen define conceptualmente el tipo de acoplamiento del sistema.
+    </div>
+  </div>
+</section>
+
+<section class="blocks-section" id="teoria-relaciones" style="padding-bottom: 0;">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Teoría</span>
+    <h2 class="section-header__title">Tipos de Acoplamiento y Dependencia</h2>
+  </div>
+
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">1. Asociación (Relación "Usa un")</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Es la relación estructural más débil. Una clase interactúa con otra pasándola como argumento o asignándola a una propiedad, pero ambas mantienen ciclos de vida completamente independientes y autónomos.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">asociacion.py</span><button class="btn-copy" data-target="code-t-asociacion">Copiar</button></div>
+        <pre id="code-t-asociacion" style="margin: 0;"><code class="language-python">class Profesor:
     def __init__(self, nombre):
         self.nombre = nombre
 
 class Curso:
     def __init__(self, titulo, profesor):
         self.titulo = titulo
-        self.profesor = profesor  # asociación
+        self.profesor = profesor  # El profesor existe fuera del curso
 
 p = Profesor("Ana")
 c = Curso("Matemáticas", p)
-print(c.profesor.nombre)  # Ana
+print(c.profesor.nombre)  # Salida: Ana
 </code></pre>
+      </div>
     </div>
 
-    <h3>2. Agregación</h3>
-    <p><strong>Concepto:</strong> Una clase contiene objetos de otra, pero los objetos pueden existir sin la clase contenedora.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Estudiante:
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">2. Agregación (Relación "Tiene un" / Todo-Parte Débil)</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Una clase actúa como contenedora ("todo") de una colección de objetos independientes ("partes"). Si el contenedor principal se destruye, los objetos que estaban almacenados en su interior siguen existiendo en memoria.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">agregacion.py</span><button class="btn-copy" data-target="code-t-agregacion">Copiar</button></div>
+        <pre id="code-t-agregacion" style="margin: 0;"><code class="language-python">class Estudiante:
     def __init__(self, nombre):
         self.nombre = nombre
 
 class Escuela:
     def __init__(self, nombre):
         self.nombre = nombre
-        self.estudiantes = []  # agregación
+        self.estudiantes = []  # Los estudiantes se agregan externamente
 
     def agregar_estudiante(self, estudiante):
         self.estudiantes.append(estudiante)
@@ -43,55 +130,70 @@ class Escuela:
 e1 = Estudiante("Luis")
 escuela = Escuela("Colegio Central")
 escuela.agregar_estudiante(e1)
-print(escuela.estudiantes[0].nombre)  # Luis
+print(escuela.estudiantes[0].nombre)  # Salida: Luis
 </code></pre>
+      </div>
     </div>
 
-    <h3>3. Composición</h3>
-    <p><strong>Concepto:</strong> Una clase crea y controla la vida de los objetos que contiene. Si la clase se destruye, también sus objetos.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Motor:
-    def __init__(self, tipo):
-        self.tipo = tipo
-
-class Auto:
-    def __init__(self, modelo):
-        self.modelo = modelo
-        self.motor = Motor("Gasolina")  # composición
-
-a = Auto("Toyota")
-print(a.motor.tipo)  # Gasolina
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">3. Composición (Relación "Formado por" / Todo-Parte Fuerte)</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Es un acoplamiento estricto. La clase contenedora se encarga de instanciar directamente a los objetos internos. El ciclo de vida de las partes está supeditado al del contenedor; si este se destruye, sus partes mueren con él.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">composicion.py</span><button class="btn-copy" data-target="code-t-composicion">Copiar</button></div>
+        <pre id="code-t-composicion" style="margin: 0;"><code class="language-python"># Representado en la Hero Section. 
+# Las sub-partes se instancian en el constructor (__init__) del objeto raíz.
 </code></pre>
+      </div>
     </div>
 
-    <h3>4. Herencia UML</h3>
-    <p><strong>Concepto:</strong> Una clase hija hereda atributos y métodos de la clase padre.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Persona:
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">4. Herencia UML (Relación "Es un" / Generalización)</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Una relación de especialización donde una subclase se deriva de una superclase, heredando toda su interfaz y estado estructural para extender o redefinir comportamientos específicos.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">herencia_uml.py</span><button class="btn-copy" data-target="code-t-herencia">Copiar</button></div>
+        <pre id="code-t-herencia" style="margin: 0;"><code class="language-python">class Persona:
     def __init__(self, nombre):
         self.nombre = nombre
 
 class Estudiante(Persona):
     def __init__(self, nombre, carrera):
-        super().__init__(nombre)
+        super().__init__(nombre)  # Reutiliza el constructor de la superclase
         self.carrera = carrera
 
 e = Estudiante("Carlos", "Ingeniería")
-print(e.nombre, e.carrera)
+print(e.nombre, e.carrera)  # Salida: Carlos Ingeniería
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona la inyección perimetral de dependencias, agregaciones volátiles y construcciones atómicas fuertemente acopladas.</p>
+  </div>
 
-    <h4>Ejercicio 1: Asociación</h4>
-    <p>Crear clase <code>Libro</code> y clase <code>Autor</code>, donde un libro tiene un autor asociado.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Autor:
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">📚</div>
+      <h3 class="block-card__title">Ejercicio 1: Vinculación referencial independiente (Asociación)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Diseña un modelo literario asociando instancias de entidades intelectuales sin encadenar o fusionar sus ciclos de destrucción en memoria.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">libro_autor.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">class Autor:
     def __init__(self, nombre):
         self.nombre = nombre
 
@@ -102,15 +204,23 @@ class Libro:
 
 a = Autor("Gabriel García Márquez")
 l = Libro("Cien años de soledad", a)
-print(l.autor.nombre)  # Gabriel García Márquez
+print(l.autor.nombre)  # Salida: Gabriel García Márquez
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Agregación</h4>
-    <p>Crear clase <code>Departamento</code> que contenga empleados.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Empleado:
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🏢</div>
+      <h3 class="block-card__title">Ejercicio 2: Colección estructural de entidades volátiles (Agregación)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Modela una división corporativa capaz de almacenar y listar personal operativo inyectado dinámicamente desde el exterior del objeto contenedor.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">departamento_empleados.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">class Empleado:
     def __init__(self, nombre):
         self.nombre = nombre
 
@@ -124,20 +234,29 @@ class Departamento:
 
 d = Departamento("TI")
 d.agregar_empleado(Empleado("Ana"))
-print(d.empleados[0].nombre)  # Ana
+print(d.empleados[0].nombre)  # Salida: Ana
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Composición</h4>
-    <p>Crear clase <code>Casa</code> que contenga objetos <code>Habitacion</code> creados internamente.</p>
-    <div class="code-editor">
-<pre><code class="python">
-class Habitacion:
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">🏠</div>
+      <h3 class="block-card__title">Ejercicio 3: Instanciación e internalización rígida de componentes (Composición)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Construye una estructura arquitectónica habitacional donde las dependencias internas se inicializan de forma privada y dependiente en el constructor de la raíz.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">casa_habitaciones.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">class Habitacion:
     def __init__(self, nombre):
         self.nombre = nombre
 
 class Casa:
     def __init__(self):
+        # Las habitaciones nacen y mueren única y estrictamente con la Casa
         self.habitaciones = [Habitacion("Sala"), Habitacion("Cocina")]
 
 c = Casa()
@@ -147,8 +266,28 @@ for h in c.habitaciones:
 # Sala
 # Cocina
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

@@ -1,56 +1,113 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 14: Unpacking en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 14: Unpacking (Desempaquetado)</h2>
 
-<section class="teoria">
-    <h3>Concepto</h3>
-    <p>
-        El <strong>unpacking</strong> consiste en extraer valores de una estructura (lista, tupla, diccionario) 
-        y asignarlos a variables individuales.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 14</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Avanzado</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Unpacking en<br>
+      <span class="text-gradient">Python</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Domina la extracción y distribución atómica de datos coleccionables. 
+      Descubre cómo desempaquetar de forma directa secuencias, mapeos y estructuras iterables asignándolas a variables independientes en una sola línea de código.
     </p>
 
-    <h3>Básico</h3>
-    <div class="code-editor">
-<pre><code class="python">
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">unpacking_basico.py</span>
+        <button class="btn-copy" data-target="code-unpacking-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-unpacking-hero"><code class="language-python"># Unpacking posicional básico
 a, b = [1, 2]
-print(a, b)  # 1 2
+print(a, b)  # Salida: 1 2
 
-a, b, c = (1, 2, 3)
-print(a, b, c)  # 1 2 3
-</code></pre>
-    </div>
-
-    <h3>Con operador *</h3>
-    <div class="code-editor">
-<pre><code class="python">
+# Capturas avanzadas usando el operador *
 primero, *resto, ultimo = [1, 2, 3, 4, 5]
-print(primero)  # 1
-print(resto)    # [2, 3, 4]
-print(ultimo)   # 5
+print(primero)  # Salida: 1
+print(resto)    # Salida: [2, 3, 4]
+print(ultimo)   # Salida: 5
 </code></pre>
     </div>
 
-    <h3>En funciones</h3>
-    <div class="code-editor">
-<pre><code class="python">
-def suma(a, b, c):
+    <div class="hero__pills">
+      <span class="pill pill--amber">a, b = lista</span>
+      <span class="pill pill--green">*args</span>
+      <span class="pill pill--blue">**kwargs</span>
+      <span class="pill pill--purple">Sintaxis</span>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>¿Qué es el Unpacking?</strong> Es una técnica expresiva nativa de Python que elimina la necesidad de acceder a colecciones de forma manual mediante índices repetitivos (como hacer <code>a = lista[0]</code>). Permite mapear instantáneamente estructuras iterables enteras en variables unitarias bien nombradas, mejorando drásticamente la legibilidad del código.
+    </div>
+  </div>
+</section>
+
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title" style="margin-top: 0.5rem;">Desempaquetado en Firmas de Función e Iteraciones Cíclicas</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem; margin-bottom: 1.5rem;">
+        La versatilidad del unpacking permite esparcir parámetros posicionales hacia argumentos de funciones, fusionar diccionarios en caliente o deconstruir estructuras compuestas directamente dentro de sentencias <code>for</code>.
+      </p>
+
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto; margin-bottom: 1.5rem;">
+        <div class="code-window__header">
+          <span class="code-window__title">funciones_y_mapeos.py</span>
+          <button class="btn-copy" data-target="code-unpacking-avanzado" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-unpacking-avanzado" style="margin: 0; overflow-x: auto;"><code class="language-python">def suma(a, b, c):
     return a + b + c
 
 numeros = [1, 2, 3]
-print(suma(*numeros))  # 6
+print(suma(*numeros))  # Esparcido posicional. Salida: 6
 
 dict1 = {"a": 1}
 dict2 = {"b": 2}
-combinado = {**dict1, **dict2}
-print(combinado)  # {'a': 1, 'b': 2}
+combinado = {**dict1, **dict2}  # Fusión de diccionarios
+print(combinado)  # Salida: {'a': 1, 'b': 2}
 </code></pre>
-    </div>
+      </div>
 
-    <h3>En bucles</h3>
-    <div class="code-editor">
-<pre><code class="python">
-coordenadas = [(1, 2), (3, 4), (5, 6)]
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">bucles_desempaquetados.py</span>
+          <button class="btn-copy" data-target="code-unpacking-bucles" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-unpacking-bucles" style="margin: 0; overflow-x: auto;"><code class="language-python">coordenadas = [(1, 2), (3, 4), (5, 6)]
+
 for x, y in coordenadas:
     print(f"x={x}, y={y}")
 
@@ -59,44 +116,100 @@ for x, y in coordenadas:
 # x=3, y=4
 # x=5, y=6
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona la manipulación atómica de secuencias, llamadas dinámicas esparcidas y fusiones clave-valor.</p>
+  </div>
 
-    <h4>Ejercicio 1: Desempaquetar tupla</h4>
-    <div class="code-editor">
-<pre><code class="python">
-primera, *mitad, ultima = (10, 20, 30, 40)
-print(primera)  # 10
-print(mitad)    # [20, 30]
-print(ultima)   # 40
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">📦</div>
+      <h3 class="block-card__title">Ejercicio 1: Deconstrucción parcial de registros (Tuplas)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Extrae los extremos fijos de una tupla recolectando de forma dinámica los elementos centrales remanentes en un sub-arreglo secundario.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">desempaqueta_tupla.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">primera, *mitad, ultima = (10, 20, 30, 40)
+
+print(primera)  # Salida: 10
+print(mitad)    # Salida: [20, 30]
+print(ultima)   # Salida: 40
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Usar *lista en función</h4>
-    <div class="code-editor">
-<pre><code class="python">
-def multiplicar(a, b, c):
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">Ejercicio 2: Argumentación dinámica por expansión (Splat Operator)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Pasa una lista completa de datos numéricos discretos hacia los parámetros requeridos por una función de multiplicación sin indexar de manera individual.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">funcion_splat.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">def multiplicar(a, b, c):
     return a * b * c
 
 lista = [2, 3, 4]
-print(multiplicar(*lista))  # 24
+print(multiplicar(*lista))  # Salida: 24
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Combinar diccionarios</h4>
-    <div class="code-editor">
-<pre><code class="python">
-dict1 = {"x": 1}
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">🗺️</div>
+      <h3 class="block-card__title">Ejercicio 3: Fusión no destructiva de diccionarios (Kwargs Unpacking)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Agrupa múltiples diccionarios independientes dentro de una nueva variable en una sola declaración aplicando desempaquetado por doble asterisco.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">combina_diccionarios.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">dict1 = {"x": 1}
 dict2 = {"y": 2}
+
 dict3 = {**dict1, **dict2}
-print(dict3)  # {'x': 1, 'y': 2}
+print(dict3)  # Salida: {'x': 1, 'y': 2}
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

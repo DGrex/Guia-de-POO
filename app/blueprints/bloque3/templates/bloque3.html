@@ -1,13 +1,50 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 3: Operadores en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 3: Operadores en Python</h2>
 
-<section class="teoria">
-    <h3>Operadores aritméticos</h3>
-    <p>Permiten realizar cálculos matemáticos básicos.</p>
-    <div class="code-editor">
-<pre><code class="python">
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 03</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Operadores en<br>
+      <span class="text-gradient">Python</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Domina las herramientas esenciales para manipular datos y construir condiciones. 
+      Explora desde los cálculos aritméticos básicos hasta la evaluación lógica, la precedencia de operaciones y la identidad de los objetos.
+    </p>
+
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">aritmeticos.py</span>
+        <button class="btn-copy" data-target="code-aritmeticos" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-aritmeticos"><code class="language-python"># Operadores aritméticos aritméticos básicos
 a = 20
 b = 4
 
@@ -21,11 +58,36 @@ print(a ** b) # Potencia → 160000
 </code></pre>
     </div>
 
-    <h3>Operadores de comparación</h3>
-    <p>Comparan valores y devuelven <code>True</code> o <code>False</code>.</p>
-    <div class="code-editor">
-<pre><code class="python">
-x = 10
+    <div class="hero__pills">
+      <span class="pill pill--amber">Aritméticos</span>
+      <span class="pill pill--green">Comparación</span>
+      <span class="pill pill--blue">Lógicos</span>
+      <span class="pill pill--purple">Identidad (is)</span>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Diferencia clave:</strong> El operador <code>==</code> compara exclusivamente el <strong>contenido</strong> de dos variables, mientras que el operador <code>is</code> evalúa si apuntan a la misma <strong>referencia en memoria</strong>.
+    </div>
+  </div>
+</section>
+
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title" style="margin-top: 0.5rem;">Operadores de Comparación</h3>
+      <p class="block-card__desc" style="margin-bottom: 1rem;">Evalúan relaciones de igualdad o magnitud, devolviendo siempre un valor booleano.</p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">comparacion.py</span>
+          <button class="btn-copy" data-target="code-comparacion" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-comparacion" style="margin: 0; overflow-x: auto;"><code class="language-python">x = 10
 y = 20
 
 print(x == y)  # Igualdad → False
@@ -35,26 +97,36 @@ print(x < y)   # Menor → True
 print(x >= 10) # Mayor o igual → True
 print(y <= 20) # Menor o igual → True
 </code></pre>
+      </div>
     </div>
 
-    <h3>Operadores lógicos</h3>
-    <p>Permiten combinar condiciones.</p>
-    <div class="code-editor">
-<pre><code class="python">
-cond1 = True
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title" style="margin-top: 0.5rem;">Operadores Lógicos</h3>
+      <p class="block-card__desc" style="margin-bottom: 1rem;">Permiten combinar o interceptar múltiples condiciones lógicas consecutivas.</p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">logicos.py</span>
+          <button class="btn-copy" data-target="code-logicos" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-logicos" style="margin: 0; overflow-x: auto;"><code class="language-python">cond1 = True
 cond2 = False
 
 print(cond1 and cond2) # AND → False
 print(cond1 or cond2)  # OR → True
 print(not cond1)       # NOT → False
 </code></pre>
+      </div>
     </div>
 
-    <h3>== vs is</h3>
-    <p><code>==</code> compara contenido, <code>is</code> compara referencia en memoria.</p>
-    <div class="code-editor">
-<pre><code class="python">
-a = [1, 2]
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title" style="margin-top: 0.5rem;">Contenido vs Memoria (== vs is)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1rem;">Demostración práctica del comportamiento de asignación por valor y referencia.</p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">identidad.py</span>
+          <button class="btn-copy" data-target="code-identidad" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-identidad" style="margin: 0; overflow-x: auto;"><code class="language-python">a = [1, 2]
 b = [1, 2]
 c = a
 
@@ -62,50 +134,105 @@ print(a == b) # True → mismo contenido
 print(a is b) # False → objetos distintos
 print(a is c) # True → misma referencia
 </code></pre>
+      </div>
     </div>
 
-    <h3>Precedencia de operadores</h3>
-    <p>Orden en que Python evalúa las operaciones.</p>
-    <div class="code-editor">
-<pre><code class="python">
-x = 2 + 1 * 2 % 2 + (2 ** 1) // 2
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title" style="margin-top: 0.5rem;">Precedencia de Operadores</h3>
+      <p class="block-card__desc" style="margin-bottom: 1rem;">Orden jerárquico estricto en el que Python interpreta una expresión matemática.</p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">precedencia.py</span>
+          <button class="btn-copy" data-target="code-precedencia" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-precedencia" style="margin: 0; overflow-x: auto;"><code class="language-python">x = 2 + 1 * 2 % 2 + (2 ** 1) // 2
 print(x)  # Resultado: 3
-# Orden: ** → % → // → * → + 
+
+# Orden jerárquico: ** → % → // → * → +
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Analiza casos prácticos y evalúa expresiones aplicando operadores aritméticos y condicionales.</p>
+  </div>
 
-    <h4>Ejercicio 1: Operadores aritméticos</h4>
-    <div class="code-editor">
-<pre><code class="python">
-a = 15
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">🧮</div>
+      <h3 class="block-card__title">Ejercicio 1: Evaluación aritmética básica</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Crea variables numéricas y calcula operaciones aritméticas elementales simultáneamente.</p>
+      
+      <div class="code-window" style="text-align: left;">
+        <div class="code-window__header">
+          <span class="code-window__title">ejercicio1.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1"><code class="language-python">a = 15
 b = 6
 print(a + b, a - b, a * b, a / b)
 # Salida: 21 9 90 2.5
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: == vs is</h4>
-    <div class="code-editor">
-<pre><code class="python">
-lista1 = [1, 2, 3]
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">📦</div>
+      <h3 class="block-card__title">Ejercicio 2: Verificación de equivalencia con colecciones mutables</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Compara dos listas con valores idénticos utilizando operadores de igualdad y de identidad.</p>
+      
+      <div class="code-window" style="text-align: left;">
+        <div class="code-window__header">
+          <span class="code-window__title">ejercicio2.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2"><code class="language-python">lista1 = [1, 2, 3]
 lista2 = [1, 2, 3]
 
 print(lista1 == lista2) # True
 print(lista1 is lista2) # False
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Precedencia</h4>
-    <p>
-        Evalúa <code>2 + 1 * 2 % 2 + (2 ** 1)//2</code>.  
-        Resultado: <strong>3</strong> porque se aplica el orden de precedencia.
-    </p>
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">❓</div>
+      <h3 class="block-card__title">Ejercicio 3: Desglose de Precedencia</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+        Al evaluar la expresión <code>2 + 1 * 2 % 2 + (2 ** 1) // 2</code> obtendremos un resultado final de <strong>3</strong>. 
+        Esto se debe a que Python primero procesará el contenido de los paréntesis y potencias, seguido por los operadores de multiplicación, residuo y división entera de izquierda a derecha, efectuando las sumas al último escalón de la ejecución.
+      </p>
+    </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

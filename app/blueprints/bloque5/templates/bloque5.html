@@ -1,18 +1,51 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 5: Condicionales en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 5: Condicionales if, elif, else</h2>
 
-<section class="teoria">
-    <h3>¿Qué son las estructuras condicionales?</h3>
-    <p>
-        Las estructuras condicionales permiten ejecutar diferentes bloques de código según se cumpla o no una condición.
-        En Python usamos <code>if</code>, <code>elif</code> y <code>else</code>.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 05</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Estructuras<br>
+      <span class="text-gradient">Condicionales</span><br>
+      en Python
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Aprende a dotar de lógica y toma de decisiones a tus programas. 
+      Controla el flujo de ejecución evaluando situaciones lógicas mediante el uso preciso de las bifurcaciones <code>if</code>, <code>elif</code> y <code>else</code>.
     </p>
 
-    <div class="code-editor">
-<pre><code class="python">
-# Ejemplo básico de condicional
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">condicional_basico.py</span>
+        <button class="btn-copy" data-target="code-basico" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-basico"><code class="language-python"># Ejemplo básico de condicional
 edad = 18
 
 if edad >= 18:
@@ -21,15 +54,64 @@ else:
     print("Eres menor de edad")
 </code></pre>
     </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">if</span>
+      <span class="pill pill--green">elif</span>
+      <span class="pill pill--blue">else</span>
+      <span class="pill pill--purple">Control de Flujo</span>
+    </div>
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Concepto clave:</strong> Las estructuras condicionales permiten desviar y ramificar el camino de ejecución del código de un programa basándose en si la evaluación de una condición booleana resulta en <code>True</code> o <code>False</code>.
+    </div>
+  </div>
+</section>
 
-    <h4>Ejercicio 1: Clasifica un número como positivo, negativo o cero</h4>
-    <div class="code-editor">
-<pre><code class="python">
-numero = -3
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">#️⃣</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">¿Cómo funcionan if, elif y else?</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+        Python evalúa el código de arriba hacia abajo de manera secuencial:<br><br>
+        • <code>if</code>: Es el punto de partida obligatorio. Si la condición es verdadera, ejecuta su bloque de código y omite el resto de la estructura.<br>
+        • <code>elif</code>: (Abreviación de <i>else if</i>) Permite encadenar múltiples evaluaciones alternativas opcionales si las condiciones previas resultaron falsas.<br>
+        • <code>else</code>: Bloque final opcional que captura cualquier caso sobrante que no haya cumplido ninguna de las condiciones anteriores.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Analiza casos reales aplicando evaluaciones lógicas múltiples para clasificar e identificar rangos de datos.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">🔢</div>
+      <h3 class="block-card__title">Ejercicio 1: Clasificación de números (Signo)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Crea un script con ramificaciones para determinar si un número dado es positivo, negativo o idénticamente cero.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">clasifica_numero.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">numero = -3
 
 if numero > 0:
     print("El número es positivo")
@@ -40,12 +122,21 @@ else:
 
 # Salida: El número es negativo
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Verifica si un estudiante aprueba o reprueba</h4>
-    <div class="code-editor">
-<pre><code class="python">
-nota = 7
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🎓</div>
+      <h3 class="block-card__title">Ejercicio 2: Sistema de aprobación académica</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Evalúa el puntaje final de un estudiante basándote en un umbral mínimo de corte para aprobar.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">evalua_nota.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">nota = 7
 
 if nota >= 7:
     print("Aprobado")
@@ -54,12 +145,21 @@ else:
 
 # Salida: Aprobado
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Determina el rango de edad</h4>
-    <div class="code-editor">
-<pre><code class="python">
-edad = 25
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">⏳</div>
+      <h3 class="block-card__title">Ejercicio 3: Segmentación por rangos de edad</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Evalúa de forma escalonada la edad de un usuario para clasificarlo en su respectiva etapa biológica.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">rango_edad.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">edad = 25
 
 if edad < 12:
     print("Niño")
@@ -72,9 +172,28 @@ else:
 
 # Salida: Adulto
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

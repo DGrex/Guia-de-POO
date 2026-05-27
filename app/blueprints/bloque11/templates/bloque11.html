@@ -1,83 +1,203 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 11: Conjuntos en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 11: Conjuntos en Python</h2>
 
-<section class="teoria">
-    <h3>Concepto</h3>
-    <p>
-        Los <strong>conjuntos</strong> (<code>set</code>) son colecciones sin duplicados y sin orden garantizado.  
-        Se usan para eliminar repetidos y realizar operaciones matemáticas como unión e intersección.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 11</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Conjuntos en<br>
+      <span class="text-gradient">Python</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Domina las colecciones mutables optimizadas para la unicidad de elementos.
+      Aprende a trabajar con tipos de datos <code>set</code> utilizando llaves <code>{}</code>, eliminando duplicados de manera nativa y realizando operaciones algebraicas de alta velocidad.
     </p>
-    <div class="code-editor">
-<pre><code class="python">
-numeros = {1, 2, 2, 3, 3}
+
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">conjuntos_basicos.py</span>
+        <button class="btn-copy" data-target="code-set-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-set-hero"><code class="language-python">numeros = {1, 2, 2, 3, 3}
 print(numeros)  
-# Salida: {1, 2, 3} → elimina duplicados
+# Salida: {1, 2, 3} → elimina duplicados automáticamente
 </code></pre>
     </div>
 
-    <h3>Operaciones matemáticas</h3>
-    <div class="code-editor">
-<pre><code class="python">
-A = {1, 2, 3, 4}
-B = {3, 4, 5, 6}
-
-print(A | B)  # Unión → {1,2,3,4,5,6}
-print(A & B)  # Intersección → {3,4}
-print(A - B)  # Diferencia → {1,2}
-print(A ^ B)  # Diferencia simétrica → {1,2,5,6}
-</code></pre>
+    <div class="hero__pills">
+      <span class="pill pill--amber">set{}</span>
+      <span class="pill pill--green">Unicidad</span>
+      <span class="pill pill--blue">Algebra</span>
+      <span class="pill pill--purple">Sin Orden</span>
     </div>
-
-    <h3>Métodos principales</h3>
-    <div class="code-editor">
-<pre><code class="python">
-conjunto = {1, 2, 3}
-conjunto.add(4)       # Agregar
-conjunto.remove(2)    # Eliminar (error si no existe)
-conjunto.discard(5)   # Eliminar sin error
-print(conjunto)       # {1, 3, 4}
-</code></pre>
-    </div>
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Concepto de Set:</strong> Un conjunto es una estructura de datos indexada internamente mediante tablas hash que no permite elementos repetidos. Además, a diferencia de las listas o tuplas, los conjuntos <strong>no tienen un orden garantizado</strong>, por lo que no es posible acceder a sus posiciones usando índices numéricos como <code>[0]</code>.
+    </div>
+  </div>
+</section>
 
-    <h4>Ejercicio 1: Operaciones básicas</h4>
-    <div class="code-editor">
-<pre><code class="python">
-A = {1, 2, 3}
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title" style="margin-top: 0.5rem;">Operaciones de Álgebra de Conjuntos y Métodos Nativos</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem; margin-bottom: 1.5rem;">
+        Python implementa operadores bit a bit para simular operaciones matemáticas de conjuntos de manera óptima, además de métodos integrados para alterar su mutabilidad de forma segura.
+      </p>
+
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto; margin-bottom: 1.5rem;">
+        <div class="code-window__header">
+          <span class="code-window__title">operaciones_algebraicas.py</span>
+          <button class="btn-copy" data-target="code-set-algebra" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-set-algebra" style="margin: 0; overflow-x: auto;"><code class="language-python">A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+print(A | B)  # Unión → {1, 2, 3, 4, 5, 6}
+print(A & B)  # Intersección → {3, 4}
+print(A - B)  # Diferencia → {1, 2}
+print(A ^ B)  # Diferencia simétrica → {1, 2, 5, 6}
+</code></pre>
+      </div>
+
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">metodos_conjuntos.py</span>
+          <button class="btn-copy" data-target="code-set-metodos" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-set-metodos" style="margin: 0; overflow-x: auto;"><code class="language-python">conjunto = {1, 2, 3}
+conjunto.add(4)       # Agregar elemento
+conjunto.remove(2)    # Eliminar (lanza KeyError si no existe)
+conjunto.discard(5)   # Eliminar de forma segura (no lanza error si no existe)
+
+print(conjunto)       # {1, 3, 4}
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona la potencia de la de-duplicación dinámica y combinaciones lógicas de pertenencia.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">📊</div>
+      <h3 class="block-card__title">Ejercicio 1: Operaciones fundamentales con sets</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Crea dos colecciones discretas y calcula sus relaciones de fusión, coincidencia y exclusión mediante operadores lógicos rápidos.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">operaciones_basicas.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">A = {1, 2, 3}
 B = {3, 4, 5}
 
-print("Unión:", A | B)          # {1,2,3,4,5}
+print("Unión:", A | B)          # {1, 2, 3, 4, 5}
 print("Intersección:", A & B)   # {3}
-print("Diferencia:", A - B)     # {1,2}
+print("Diferencia:", A - B)     # {1, 2}
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Eliminar duplicados de una lista</h4>
-    <div class="code-editor">
-<pre><code class="python">
-lista = [1, 2, 2, 3, 3, 3, 4]
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🧼</div>
+      <h3 class="block-card__title">Ejercicio 2: Filtrado y remoción de duplicados en listas</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Aplica conversión dinámica de tipos (Casting) para limpiar una secuencia iterable de datos repetidos de forma instantánea.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">limpieza_duplicados.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">lista = [1, 2, 2, 3, 3, 3, 4]
 sin_dup = list(set(lista))
-print(sin_dup)  # [1,2,3,4]
+
+print(sin_dup)  # [1, 2, 3, 4]
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Diferencia simétrica</h4>
-    <div class="code-editor">
-<pre><code class="python">
-A = {1, 2, 3, 4}
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">📐</div>
+      <h3 class="block-card__title">Ejercicio 3: Simulación aritmética de diferencia simétrica</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Desarrolla el equivalente lógico de la diferencia simétrica aislando elementos exclusivos mediante operaciones de unión y resta de intersecciones.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">diferencia_simetrica.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">A = {1, 2, 3, 4}
 B = {3, 4, 5, 6}
 
 resultado = (A | B) - (A & B)
-print(resultado)  # {1,2,5,6}
+print(resultado)  # {1, 2, 5, 6}
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

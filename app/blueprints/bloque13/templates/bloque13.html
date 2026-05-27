@@ -1,19 +1,50 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 13: Decoradores en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 13: Decoradores en Python</h2>
 
-<section class="teoria">
-    <h3>¿Qué es un decorador?</h3>
-    <p>
-        Un <strong>decorador</strong> es una función que recibe otra función, modifica su comportamiento y retorna una nueva función.  
-        Se aplica con <code>@nombre_decorador</code> antes de la función que se quiere decorar.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 13</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Avanzado</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Decoradores en<br>
+      <span class="text-gradient">Python</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Aprende a modificar y extender el comportamiento de tus funciones de forma elegante. 
+      Descubre la metaprogramación usando azúcar sintáctico mediante el prefijo <code>@</code> para inyectar lógica de validación, logs y auditorías de manera reutilizable.
     </p>
 
-    <h3>Estructura básica</h3>
-    <div class="code-editor">
-<pre><code class="python">
-def mi_decorador(funcion_original):
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">decorador_basico.py</span>
+        <button class="btn-copy" data-target="code-decorator-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-decorator-hero"><code class="language-python">def mi_decorador(funcion_original):
     def wrapper(*args, **kwargs):
         print("Antes de ejecutar")
         resultado = funcion_original(*args, **kwargs)
@@ -26,17 +57,44 @@ def saludar():
     print("Hola mundo")
 
 saludar()
-# Salida:
-# Antes de ejecutar
-# Hola mundo
-# Después de ejecutar
 </code></pre>
     </div>
 
-    <h3>Ejemplo práctico: validación</h3>
-    <div class="code-editor">
-<pre><code class="python">
-def validar_division(funcion):
+    <div class="hero__pills">
+      <span class="pill pill--amber">@decorador</span>
+      <span class="pill pill--green">wrapper</span>
+      <span class="pill pill--blue">*args, **kwargs</span>
+      <span class="pill pill--purple">Closures</span>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Funciones de Orden Superior:</strong> En Python, las funciones son objetos de "primera clase", lo que significa que pueden ser pasadas como argumentos, asignadas a variables y retornadas por otras funciones. Un decorador saca provecho de esto envolviendo una función (<i>callback</i>) dentro de una función interna (<i>wrapper</i>) para alterar sus acciones sin modificar su código fuente original.
+    </div>
+  </div>
+</section>
+
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">#️⃣</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">Caso de Uso Práctico: Inyección de Validaciones Perimetrales</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem; margin-bottom: 1.5rem;">
+        Uno de los mayores beneficios de los decoradores es la separación de conceptos. Podemos aislar las reglas lógicas de control sanitario (como evitar divisiones matemáticas indeterminadas) de la implementación de la función core aritmética:
+      </p>
+
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">decorador_validacion.py</span>
+          <button class="btn-copy" data-target="code-decorador-val" title="Copiar">Copiar</button>
+        </div>
+        <pre id="code-decorador-val" style="margin: 0; overflow-x: auto;"><code class="language-python">def validar_division(funcion):
     def wrapper(a, b):
         if b == 0:
             print("Error: división por cero")
@@ -48,19 +106,36 @@ def validar_division(funcion):
 def dividir(a, b):
     return a / b
 
-print(dividir(10, 2))  # 5.0
-print(dividir(10, 0))  # Error: división por cero
+print(dividir(10, 2))  # Salida: 5.0
+print(dividir(10, 0))  # Salida: Error: división por cero -> None
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Analiza la intercepción de firmas de argumentos flexibles utilizando cierres de función dinámicos.</p>
+  </div>
 
-    <h4>Ejercicio 1: Decorador simple</h4>
-    <div class="code-editor">
-<pre><code class="python">
-def iniciar(funcion):
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">🔔</div>
+      <h3 class="block-card__title">Ejercicio 1: Intercepción simple de flujos</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Crea un decorador básico que actúe como un disparador de inicialización imprimiendo una alerta previa en terminal antes del llamado.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">decorador_simple.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">def iniciar(funcion):
     def wrapper(*args, **kwargs):
         print("Iniciando ...")
         return funcion(*args, **kwargs)
@@ -75,12 +150,21 @@ hola()
 # Iniciando ...
 # Hola Denis
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Decorador con validación</h4>
-    <div class="code-editor">
-<pre><code class="python">
-def positivo(funcion):
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🛡️</div>
+      <h3 class="block-card__title">Ejercicio 2: Validación condicional de parámetros de entrada</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Desarrolla una envoltura protectora que impida el procesamiento algebraico si los argumentos de entrada no cumplen con criterios estrictamente positivos.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">decorador_filtro.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">def positivo(funcion):
     def wrapper(x):
         if x <= 0:
             print("Error: debe ser positivo")
@@ -92,15 +176,24 @@ def positivo(funcion):
 def cuadrado(x):
     return x ** 2
 
-print(cuadrado(4))   # 16
-print(cuadrado(-3))  # Error: debe ser positivo
+print(cuadrado(4))   # Salida: 16
+print(cuadrado(-3))  # Salida: Error: debe ser positivo
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Decorador de log</h4>
-    <div class="code-editor">
-<pre><code class="python">
-def log(funcion):
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">📝</div>
+      <h3 class="block-card__title">Ejercicio 3: Sistema básico de trazas (Logger)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Diseña una rutina de monitoreo automático que registre el llamado de funciones operacionales inyectando mensajes informativos en tiempo de ejecución.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">decorador_log.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">def log(funcion):
     def wrapper(*args, **kwargs):
         print("Llamando función ...")
         return funcion(*args, **kwargs)
@@ -115,9 +208,28 @@ print(suma(2, 3))
 # Llamando función ...
 # 5
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

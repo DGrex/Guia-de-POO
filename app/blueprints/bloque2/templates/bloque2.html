@@ -1,26 +1,51 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 2: Variables y Tipos de Datos{% endblock %}
 
 {% block content %}
-<h2>Bloque 2: Variables y Tipos de Datos</h2>
 
-<section class="teoria">
-    <h3>¿Qué son las variables?</h3>
-    <p>
-        Una <strong>variable</strong> es un espacio en memoria que almacena un valor. 
-        En Python no necesitas declarar el tipo explícitamente, se asigna automáticamente según el valor.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 02</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Variables y<br>
+      <span class="text-gradient">Tipos de Datos</span><br>
+      en Python
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Una <strong>variable</strong> es un espacio en memoria asignado para almacenar un valor. 
+      En Python no necesitas declarar el tipo explícitamente; este se determina y asigna de forma dinámica según el valor guardado.
     </p>
 
-    <h3>Tipos de datos básicos en Python</h3>
-    <ul>
-        <li><code>int</code>: números enteros (ej. 10, -5)</li>
-        <li><code>float</code>: números decimales (ej. 3.14, -0.5)</li>
-        <li><code>str</code>: cadenas de texto (ej. "Hola")</li>
-        <li><code>bool</code>: valores lógicos (True o False)</li>
-    </ul>
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
 
-    <div class="code-editor">
-<pre><code class="python">
-# Asignamos diferentes tipos de valores a variables
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">variables.py</span>
+        <button class="btn-copy" data-target="code-variables" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-variables"><code class="language-python"># Asignamos diferentes tipos de valores a variables
 numero_entero = 10       # int
 numero_decimal = 3.14    # float
 texto = "Hola Denis"     # str
@@ -33,39 +58,122 @@ print(texto, type(texto))                   # Salida: Hola Denis <class 'str'>
 print(es_valido, type(es_valido))           # Salida: True <class 'bool'>
 </code></pre>
     </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">int</span>
+      <span class="pill pill--green">float</span>
+      <span class="pill pill--blue">str</span>
+      <span class="pill pill--purple">bool</span>
+    </div>
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Tipos Básicos:</strong> 
+      <code>int</code> para enteros (10, -5); 
+      <code>float</code> para decimales (3.14, -0.5); 
+      <code>str</code> para texto ("Hola"); y 
+      <code>bool</code> para valores lógicos (True/False).
+    </div>
+  </div>
+</section>
 
-    <h4>Ejercicio 1: Declara una variable para tu nombre y otra para tu edad</h4>
-    <div class="code-editor">
-<pre><code class="python">
-nombre = "Denis"
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Explora la asignación, conversión y características de los tipos primitivos en Python.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">👤</div>
+      <h3 class="block-card__title">Ejercicio 1: Declarar variables de identificación personal</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Declara una variable para tu nombre y otra para tu edad.</p>
+      
+      <div class="code-window" style="text-align: left;">
+        <div class="code-window__header">
+          <div class="code-window__dots">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+          </div>
+          <span class="code-window__title">datos_personales.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiar
+          </button>
+        </div>
+        <pre id="code-ejercicio1"><code class="language-python">nombre = "Denis"
 edad = 28
 
 print("Mi nombre es", nombre)  # Salida: Mi nombre es Denis
 print("Tengo", edad, "años")   # Salida: Tengo 28 años
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Convierte un número entero a decimal</h4>
-    <div class="code-editor">
-<pre><code class="python">
-numero = 5
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🔄</div>
+      <h3 class="block-card__title">Ejercicio 2: Conversión explícita de tipos (Casting)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Convierte un número entero a decimal utilizando las funciones integradas de Python.</p>
+      
+      <div class="code-window" style="text-align: left;">
+        <div class="code-window__header">
+          <div class="code-window__dots">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+          </div>
+          <span class="code-window__title">conversion.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiar
+          </button>
+        </div>
+        <pre id="code-ejercicio2"><code class="language-python">numero = 5
 numero_decimal = float(numero)
 
 print(numero_decimal)  # Salida: 5.0
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Explica la diferencia entre int y float</h4>
-    <p>
-        <code>int</code> representa números enteros sin decimales, mientras que <code>float</code> 
-        representa números con decimales. Ejemplo: <code>10</code> es int, <code>10.0</code> es float.
-    </p>
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">❓</div>
+      <h3 class="block-card__title">Ejercicio 3: Diferencia entre int y float</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+        <code>int</code> representa números enteros exactos y sin parte fraccionaria, mientras que <code>float</code> se utiliza para representar números reales con precisión decimal. 
+        Por ejemplo, <code>10</code> es procesado como un tipo <strong>int</strong>, mientras que <code>10.0</code> corresponde a un <strong>float</strong>.
+      </p>
+    </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

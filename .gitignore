@@ -14,9 +14,7 @@ __pycache__/
 *.tmp
 *.swp
 
-# Configuración de IDEs
-.vscode/
-.idea/
+
 
 # Archivos de entorno
 .env

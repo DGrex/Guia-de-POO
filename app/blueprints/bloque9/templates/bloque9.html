@@ -1,19 +1,50 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 9: Tuplas en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 9: Tuplas en Python</h2>
 
-<section class="teoria">
-    <h3>¿Qué son las tuplas?</h3>
-    <p>
-        Una <strong>tupla</strong> es una colección ordenada de elementos, similar a una lista, 
-        pero <strong>inmutable</strong> (no se puede modificar después de creada).
-        Se definen con paréntesis <code>()</code>.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 09</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Tuplas en<br>
+      <span class="text-gradient">Python</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Descubre las colecciones ordenadas e inmutables de datos. 
+      Aprende a estructurar agrupaciones de valores fijos mediante el uso de paréntesis <code>()</code>, protegiendo la integridad de la información contra modificaciones accidentales.
     </p>
 
-    <div class="code-editor">
-<pre><code class="python">
-# Definimos una tupla de números
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">tuplas_basicas.py</span>
+        <button class="btn-copy" data-target="code-tuplas-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-tuplas-hero"><code class="language-python"># Definimos una tupla de números
 numeros = (1, 2, 3, 4, 5)
 
 # Mostramos la tupla completa
@@ -26,44 +57,130 @@ print(numeros[0])  # Salida: 1
 # numeros[0] = 10  # TypeError: 'tuple' object does not support item assignment
 </code></pre>
     </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">tuple()</span>
+      <span class="pill pill--green">Inmutable</span>
+      <span class="pill pill--blue">Unpacking</span>
+      <span class="pill pill--purple">Seguridad</span>
+    </div>
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Diferencia con las listas:</strong> Aunque las tuplas comparten la indexación y orden de las listas, su característica principal es la <strong>inmutabilidad</strong>. Una vez que una tupla es creada en memoria, es imposible añadir, remover o alterar el valor de sus componentes, lo que proporciona mayor velocidad de procesamiento y seguridad de datos.
+    </div>
+  </div>
+</section>
 
-    <h4>Ejercicio 1: Crear una tupla de frutas y acceder a sus elementos</h4>
-    <div class="code-editor">
-<pre><code class="python">
-frutas = ("manzana", "banana", "naranja")
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">#️⃣</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">¿Cuándo utilizar una Tupla?</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+        Se recomienda optar por tuplas en lugar de listas en los siguientes escenarios de desarrollo:<br><br>
+        • <code>Protección de Datos</code>: Para definir constantes fijas o registros lógicos invariables (meses del año, coordenadas geográficas, configuraciones globales).<br>
+        • <code>Rendimiento de Memoria</code>: Python procesa de forma más rápida las colecciones inmutables debido a que la asignación de espacio en memoria es fija y estática.<br>
+        • <code>Desempaquetado Directo</code>: Facilitan la asignación múltiple de variables de una sola pasada (técnica conocida como <i>Tuple Unpacking</i>).
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Analiza la conversión dinámica de colecciones, el acceso por índices bidireccionales y la técnica de desempaquetado masivo.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">🍎</div>
+      <h3 class="block-card__title">Ejercicio 1: Declaración e Indexación inversa</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Crea un registro inmutable de cadenas y accede a posiciones discretas mediante punteros positivos y negativos.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">indexa_tuplas.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">frutas = ("manzana", "banana", "naranja")
 
 print(frutas[1])   # Salida: banana
 print(frutas[-1])  # Salida: naranja
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Convertir una lista en tupla</h4>
-    <div class="code-editor">
-<pre><code class="python">
-lista = [10, 20, 30]
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">Ejercicio 2: Conversión dinámica de Tipos (Cast)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Transforma un arreglo estructurado mutable (lista) a una colección de carácter estrictamente inmutable (tupla) usando funciones integradas.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">casting_tupla.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">lista = [10, 20, 30]
 tupla = tuple(lista)
 
 print(tupla)  # Salida: (10, 20, 30)
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Uso de tuplas en asignación múltiple</h4>
-    <div class="code-editor">
-<pre><code class="python">
-# Asignación múltiple usando tupla
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">🗺️</div>
+      <h3 class="block-card__title">Ejercicio 3: Desempaquetado de variables (Tuple Unpacking)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Extrae y distribuye de forma simultánea los elementos internos de una tupla directamente hacia variables atómicas independientes.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">desempaquetar.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python"># Asignación múltiple usando tupla
 coordenadas = (4, 7)
 x, y = coordenadas
 
 print("x:", x)  # Salida: x: 4
 print("y:", y)  # Salida: y: 7
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}

@@ -1,18 +1,50 @@
 {% extends "base.html" %}
+{% block title %}PyOOP — Bloque 10: Diccionarios en Python{% endblock %}
 
 {% block content %}
-<h2>Bloque 10: Diccionarios en Python</h2>
 
-<section class="teoria">
-    <h3>¿Qué son los diccionarios?</h3>
-    <p>
-        Un <strong>diccionario</strong> es una estructura de datos que almacena pares <code>clave: valor</code>.  
-        Se definen con llaves <code>{}</code> y permiten acceder a los valores usando sus claves.
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 10</span>
+      <span class="badge badge--green">✓ Teoría y Ejercicios</span>
+      <span class="badge badge--blue">Básico</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Diccionarios en<br>
+      <span class="text-gradient">Python</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Domina el almacenamiento de datos estructurados mediante mapeos dinámicos.
+      Aprende a indexar colecciones mutables utilizando pares asociativos de <code>clave: valor</code> mediante llaves <code>{}</code> para búsquedas de alta velocidad.
     </p>
 
-    <div class="code-editor">
-<pre><code class="python">
-# Definimos un diccionario de estudiante
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">diccionario_basico.py</span>
+        <button class="btn-copy" data-target="code-dict-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-dict-hero"><code class="language-python"># Definimos un diccionario de estudiante
 estudiante = {
     "nombre": "Ana",
     "edad": 22,
@@ -24,18 +56,67 @@ print(estudiante["nombre"])   # Salida: Ana
 
 # Agregamos una nueva clave-valor
 estudiante["promedio"] = 9.1
-print(estudiante)  # Salida: {'nombre': 'Ana', 'edad': 22, 'carrera': 'Ingeniería', 'promedio': 9.1}
+print(estudiante)  # Salida: {'nombre': 'Ana', 'edad': 22, ...}
 </code></pre>
     </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">dict{}</span>
+      <span class="pill pill--green">key:value</span>
+      <span class="pill pill--blue">.items()</span>
+      <span class="pill pill--purple">Mapeos</span>
+    </div>
+  </div>
 </section>
 
-<section class="ejercicios">
-    <h3>Ejercicios resueltos</h3>
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Concepto de Asociación:</strong> A diferencia de las listas y tuplas que recuperan elementos a través de su posición numérica indexada, los diccionarios utilizan un concepto de tabla Hash. Esto permite acceder a cualquier valor de forma directa e instantánea conociendo su palabra clave única.
+    </div>
+  </div>
+</section>
 
-    <h4>Ejercicio 1: Crear un diccionario de país</h4>
-    <div class="code-editor">
-<pre><code class="python">
-pais = {
+<section class="blocks-section" id="teoria-avanzada" style="padding-bottom: 0;">
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">#️⃣</div>
+      <div class="block-card__icon">⚙️</div>
+      <h3 class="block-card__title">Reglas de Estructura e Inmutabilidad</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 1rem;">
+        Para manipular de manera óptima diccionarios en Python, debes recordar las siguientes restricciones técnicas:<br><br>
+        • <code>Claves Únicas</code>: No se permiten duplicados para una misma clave. Declarar una clave existente sobreescribirá el valor anterior sin lanzar errores.<br>
+        • <code>Claves Inmutables</code>: Las claves deben ser tipos de datos inmutables (strings, números, tuplas). No puedes usar una lista como clave de un diccionario.<br>
+        • <code>Valores Dinámicos</code>: Al contrario de las claves, los valores asignados pueden ser cualquier tipo de objeto (listas, funciones, o incluso otros diccionarios anidados).
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona métodos de deconstrucción iterativa de colecciones y flujos preventivos de validación de membresía.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">🗺️</div>
+      <h3 class="block-card__title">Ejercicio 1: Modelado de datos complejos asociativos</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Estructura un objeto con claves representativas de propiedades geográficas para realizar extracciones de valores específicos.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">diccionario_pais.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">pais = {
     "nombre": "Ecuador",
     "capital": "Quito",
     "poblacion": 18_000_000
@@ -43,12 +124,21 @@ pais = {
 
 print(pais["capital"])  # Salida: Quito
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 2: Recorrer un diccionario con for</h4>
-    <div class="code-editor">
-<pre><code class="python">
-for clave, valor in pais.items():
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🔁</div>
+      <h3 class="block-card__title">Ejercicio 2: Iteración cíclica en paralelo (.items)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Desempaqueta las llaves y valores de un diccionario de forma simultánea aplicando bucles iterativos avanzados.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">itera_diccionario.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">for clave, valor in pais.items():
     print(clave, ":", valor)
 
 # Salida:
@@ -56,18 +146,46 @@ for clave, valor in pais.items():
 # capital : Quito
 # poblacion : 18000000
 </code></pre>
+      </div>
     </div>
 
-    <h4>Ejercicio 3: Verificar si una clave existe</h4>
-    <div class="code-editor">
-<pre><code class="python">
-if "capital" in pais:
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">🔍</div>
+      <h3 class="block-card__title">Ejercicio 3: Control preventivo de llaves existentes (in)</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Utiliza operadores de membresía lógica para verificar la existencia de una clave y prevenir excepciones de tipo <code>KeyError</code>.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">valida_llave.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python">if "capital" in pais:
     print("La clave 'capital' existe")  # Salida: La clave 'capital' existe
 </code></pre>
+      </div>
     </div>
+
+  </div>
 </section>
 
-<!-- Botón de regreso -->
-<a href="{{ url_for('index') }}" class="btn-back">⬅ Volver al inicio</a>
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
 {% endblock %}
 
