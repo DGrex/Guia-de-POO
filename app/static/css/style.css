@@ -5,47 +5,55 @@
 
 /* ===== CSS VARIABLES ===== */
 :root {
-  --bg-base: #080b10;
-  --bg-surface: #0e1117;
-  --bg-elevated: #161b22;
-  --bg-overlay: rgba(22, 27, 34, 0.8);
+  /* --- Fondos Tokyo Midnight (Negro-Púrpura Profundo) --- */
+  --bg-base: #07050f;      /* Oscuridad absoluta con un sutil tinte místico */
+  --bg-surface: #0e0a1f;   /* Superficie base violeta/púrpura muy elegante */
+  --bg-elevated: #16112e;  /* Tarjetas y editores con excelente contraste */
+  --bg-overlay: rgba(22, 17, 46, 0.8); /* Capa de superposición cristalina */
 
-  --color-amber: #f59e0b;
-  --color-amber-l: #fbbf24;
-  --color-amber-d: #d97706;
-  --color-green: #10b981;
-  --color-green-l: #34d399;
-  --color-blue: #3b82f6;
-  --color-blue-l: #60a5fa;
-  --color-purple: #8b5cf6;
-  --color-purple-l: #a78bfa;
-  --color-red: #ef4444;
+  /* --- Nueva Paleta Eléctrica (Neon & Cyberpunk Vibes) --- */
+  --color-amber: #ff007f;     /* ¡Cambiado! Ahora es un Rosa Neón / Fuchsia hiperactivo */
+  --color-amber-l: #ff52af;   /* Rosa neón brillante para hovers */
+  --color-amber-d: #c2005f;   /* Magenta estructural oscuro */
+  --color-green: #00f5ff;     /* ¡Cambiado! Ahora es un Ciano Eléctrico / Teal futurista */
+  --color-green-l: #66f8ff;   /* Ciano claro brillante */
+  --color-blue: #bd00ff;      /* ¡Cambiado! Púrpura eléctrico de alta energía */
+  --color-blue-l: #d666ff;    /* Púrpura brillante */
+  --color-purple: #7000ff;    /* Violeta profundo para botones y acentos de marca */
+  --color-purple-l: #9e52ff;  /* Violeta claro */
+  --color-red: #ff3333;       /* Rojo neón puro para errores críticos */
 
-  --text-primary: #f0f6fc;
-  --text-secondary: #8b949e;
-  --text-muted: #484f58;
+  /* --- Tipografía y Textos Nítidos --- */
+  --text-primary: #f3f0ff;    /* Blanco limpio con un matiz frío/púrpura */
+  --text-secondary: #a39cb5;  /* Gris lavanda para textos descriptivos */
+  --text-muted: #645e7a;      /* Tono apagado para comentarios y bordes fantasma */
 
-  --border-subtle: rgba(240, 246, 252, 0.06);
-  --border-dim: rgba(240, 246, 252, 0.12);
-  --border-accent: rgba(245, 158, 11, 0.3);
+  /* --- Bordes de Cristal de Neón --- */
+  --border-subtle: rgba(189, 0, 255, 0.06); /* Brillo púrpura casi invisible */
+  --border-dim: rgba(243, 240, 255, 0.08);    /* Contornos definidos de tarjetas */
+  --border-accent: rgba(255, 0, 127, 0.35);   /* Brillo perimetral basado en el nuevo rosa */
 
+  /* --- Radio de Bordes (Mantenido) --- */
   --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 16px;
   --radius-xl: 24px;
 
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.5);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.7);
-  --shadow-amber: 0 0 30px rgba(245, 158, 11, 0.15);
-  --shadow-green: 0 0 30px rgba(16, 185, 129, 0.15);
+  /* --- Sombras con Auras de Neón (Neon Glow) --- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.7);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.8);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.95);
+  --shadow-amber: 0 0 35px rgba(255, 0, 127, 0.15); /* Aura glow Rosa Neón */
+  --shadow-green: 0 0 35px rgba(0, 245, 255, 0.15); /* Aura glow Ciano */
 
+  /* --- Fuentes Escogidas --- */
   --font-display: "Syne", sans-serif;
   --font-body: "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* --- Curvas de Animación Cinematográficas --- */
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 /* ===== RESET & BASE ===== */
