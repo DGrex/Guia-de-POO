@@ -1,7 +1,5 @@
-{% extends "base.html" %}
-{% block title %}PyOOP — Guía Completa de POO en Python{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}PyOOP — Guía Completa de POO en
+Python{% endblock %} {% block content %}
 
 <!-- ===== HERO SECTION ===== -->
 <section class="hero">
@@ -13,22 +11,34 @@
     </div>
 
     <h1 class="hero__title fade-up">
-      Programación<br>
-      <span class="text-gradient">Orientada a Objetos</span><br>
+      Programación<br />
+      <span class="text-gradient">Orientada a Objetos</span><br />
       en Python
     </h1>
 
     <p class="hero__subtitle fade-up">
-      Una guía completa, moderna e interactiva que te lleva desde los fundamentos
-      hasta patrones avanzados. Teoría clara, código real y ejercicios resueltos.
+      Una guía completa, moderna e interactiva que te lleva desde los
+      fundamentos hasta patrones avanzados. Teoría clara, código real y
+      ejercicios resueltos.
     </p>
 
     <div class="hero__ctas fade-up">
       <a href="#bloques" class="btn btn--primary btn--lg">
         Comenzar desde cero
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path d="m9 18 6-6-6-6" />
+        </svg>
       </a>
-      <a href="#bloques" class="btn btn--ghost btn--lg">Ver todos los bloques</a>
+      <a href="#bloques" class="btn btn--ghost btn--lg"
+        >Ver todos los bloques</a
+      >
     </div>
 
     <div class="hero__stats fade-up">
@@ -50,26 +60,29 @@
 
     <div class="authors-section fade-up">
       <span class="authors-section__label">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right: 6px; color: var(--amber);">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          style="margin-right: 6px; color: var(--amber)"
+        >
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
         </svg>
         Créditos del Módulo:
       </span>
-      
+
       <div class="authors-grid">
         <div class="author-pill" title="Denis Goyes Moran">
           <div class="author-pill__avatar author-pill__avatar--1">D</div>
           <div class="author-pill__info">
             <span class="author-pill__name">Denis Goyes M.</span>
-            <span class="author-pill__role">Desarrollador Core</span>
-          </div>
-        </div>
-
-        <div class="author-pill" title="Kebin Guevara Cobo">
-          <div class="author-pill__avatar author-pill__avatar--2">K</div>
-          <div class="author-pill__info">
-            <span class="author-pill__name">Kebin Guevara C.</span>
-            <span class="author-pill__role">Colaborador</span>
+            <span class="author-pill__role">Desarrollador</span>
           </div>
         </div>
 
@@ -77,7 +90,15 @@
           <div class="author-pill__avatar author-pill__avatar--3">A</div>
           <div class="author-pill__info">
             <span class="author-pill__name">Alex D. Gualli</span>
-            <span class="author-pill__role">Colaborador</span>
+            <span class="author-pill__role">Desarrollador</span>
+          </div>
+        </div>
+
+        <div class="author-pill" title="Kebin Guevara Cobo">
+          <div class="author-pill__avatar author-pill__avatar--2">K</div>
+          <div class="author-pill__info">
+            <span class="author-pill__name">Kebin Guevara C.</span>
+            <span class="author-pill__role">Desarrollador</span>
           </div>
         </div>
 
@@ -85,7 +106,7 @@
           <div class="author-pill__avatar author-pill__avatar--4">L</div>
           <div class="author-pill__info">
             <span class="author-pill__name">Luis Villegas S.</span>
-            <span class="author-pill__role">Colaborador</span>
+            <span class="author-pill__role">Desarrollador</span>
           </div>
         </div>
 
@@ -98,7 +119,8 @@
         </div>
       </div>
     </div>
-  </div> <div class="hero__right fade-up">
+  </div>
+  <div class="hero__right fade-up">
     <div class="code-window">
       <div class="code-window__header">
         <div class="code-window__dots">
@@ -108,11 +130,23 @@
         </div>
         <span class="code-window__title">estudiante.py</span>
         <button class="btn-copy" data-target="hero-code" title="Copiar código">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" />
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+          </svg>
           Copiar
         </button>
       </div>
-      <pre id="hero-code"><code class="language-python"># 🐍 Ejemplo: Clase Estudiante con POO
+      <pre
+        id="hero-code"
+      ><code class="language-python"># 🐍 Ejemplo: Clase Estudiante con POO
 
 class Estudiante:
     """Representa un estudiante con nombre y notas."""
@@ -157,27 +191,27 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
   </div>
 </section>
 
-
-
-
 <!-- ===== INFO BOXES ===== -->
 <section class="info-strip fade-up">
   <div class="info-box info-box--tip">
     <span class="info-box__icon">💡</span>
     <div>
-      <strong>Tip:</strong> Cada bloque incluye teoría, ejemplos de código y ejercicios resueltos con comentarios detallados.
+      <strong>Tip:</strong> Cada bloque incluye teoría, ejemplos de código y
+      ejercicios resueltos con comentarios detallados.
     </div>
   </div>
   <div class="info-box info-box--note">
     <span class="info-box__icon">📌</span>
     <div>
-      <strong>Nota:</strong> Esta guía asume conocimientos básicos de Python. ¡Empezar desde el Bloque 0!
+      <strong>Nota:</strong> Esta guía asume conocimientos básicos de Python.
+      ¡Empezar desde el Bloque 0!
     </div>
   </div>
   <div class="info-box info-box--warning">
     <span class="info-box__icon">⚡</span>
     <div>
-      <strong>Importante:</strong> Se recomienda practicar cada ejercicio antes de ver la solución.
+      <strong>Importante:</strong> Se recomienda practicar cada ejercicio antes
+      de ver la solución.
     </div>
   </div>
 </section>
@@ -187,7 +221,10 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
   <div class="section-header fade-up">
     <span class="section-header__tag">Contenido</span>
     <h2 class="section-header__title">20 Bloques de Aprendizaje</h2>
-    <p class="section-header__sub">Organizados progresivamente, desde fundamentos hasta conceptos avanzados de POO.</p>
+    <p class="section-header__sub">
+      Organizados progresivamente, desde fundamentos hasta conceptos avanzados
+      de POO.
+    </p>
   </div>
 
   <!-- Progress bar decorative -->
@@ -197,13 +234,17 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
   </div>
 
   <div class="blocks-grid" id="blocksGrid">
-
     <!-- Bloque 0 -->
-    <a href="{{ url_for('bloque0.home') }}" class="block-card block-card--featured fade-up">
+    <a
+      href="{{ url_for('bloque0.home') }}"
+      class="block-card block-card--featured fade-up"
+    >
       <div class="block-card__number">00</div>
       <div class="block-card__icon">🚀</div>
       <h3 class="block-card__title">Introducción a la POO</h3>
-      <p class="block-card__desc">Qué es la Programación Orientada a Objetos, sus pilares y ventajas.</p>
+      <p class="block-card__desc">
+        Qué es la Programación Orientada a Objetos, sus pilares y ventajas.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--concept">Concepto</span>
         <span class="tag tag--beginner">Básico</span>
@@ -216,7 +257,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">01</div>
       <div class="block-card__icon">🏗️</div>
       <h3 class="block-card__title">El Constructor __init__</h3>
-      <p class="block-card__desc">Cómo inicializar objetos y asignar atributos de instancia.</p>
+      <p class="block-card__desc">
+        Cómo inicializar objetos y asignar atributos de instancia.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--beginner">Básico</span>
@@ -229,7 +272,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">02</div>
       <div class="block-card__icon">📦</div>
       <h3 class="block-card__title">Variables y Tipos de Datos</h3>
-      <p class="block-card__desc">Tipos primitivos, colecciones y tipado dinámico en Python.</p>
+      <p class="block-card__desc">
+        Tipos primitivos, colecciones y tipado dinámico en Python.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--beginner">Básico</span>
@@ -242,7 +287,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">03</div>
       <div class="block-card__icon">➕</div>
       <h3 class="block-card__title">Operadores en Python</h3>
-      <p class="block-card__desc">Aritméticos, lógicos, de comparación y asignación.</p>
+      <p class="block-card__desc">
+        Aritméticos, lógicos, de comparación y asignación.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--beginner">Básico</span>
@@ -255,7 +302,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">04</div>
       <div class="block-card__icon">🖥️</div>
       <h3 class="block-card__title">Entrada y Salida</h3>
-      <p class="block-card__desc">Funciones input() y print(), formato de cadenas con f-strings.</p>
+      <p class="block-card__desc">
+        Funciones input() y print(), formato de cadenas con f-strings.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--beginner">Básico</span>
@@ -268,7 +317,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">05</div>
       <div class="block-card__icon">🔀</div>
       <h3 class="block-card__title">Condicionales</h3>
-      <p class="block-card__desc">Control de flujo con if, elif, else y operador ternario.</p>
+      <p class="block-card__desc">
+        Control de flujo con if, elif, else y operador ternario.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--intermediate">Medio</span>
@@ -281,7 +332,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">06</div>
       <div class="block-card__icon">🔁</div>
       <h3 class="block-card__title">Bucles while y for</h3>
-      <p class="block-card__desc">Iteración, break, continue y comprensión de listas.</p>
+      <p class="block-card__desc">
+        Iteración, break, continue y comprensión de listas.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--intermediate">Medio</span>
@@ -294,7 +347,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">07</div>
       <div class="block-card__icon">⚙️</div>
       <h3 class="block-card__title">Funciones en Python</h3>
-      <p class="block-card__desc">Definición, parámetros, retorno de valores y scope.</p>
+      <p class="block-card__desc">
+        Definición, parámetros, retorno de valores y scope.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--intermediate">Medio</span>
@@ -307,7 +362,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">08</div>
       <div class="block-card__icon">📋</div>
       <h3 class="block-card__title">Listas en Python</h3>
-      <p class="block-card__desc">Métodos de listas, slicing, ordenamiento y list comprehensions.</p>
+      <p class="block-card__desc">
+        Métodos de listas, slicing, ordenamiento y list comprehensions.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--intermediate">Medio</span>
@@ -320,7 +377,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">09</div>
       <div class="block-card__icon">🔒</div>
       <h3 class="block-card__title">Tuplas en Python</h3>
-      <p class="block-card__desc">Colecciones inmutables, desempaquetado y uso práctico.</p>
+      <p class="block-card__desc">
+        Colecciones inmutables, desempaquetado y uso práctico.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--intermediate">Medio</span>
@@ -333,7 +392,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">10</div>
       <div class="block-card__icon">🗂️</div>
       <h3 class="block-card__title">Diccionarios</h3>
-      <p class="block-card__desc">Estructura clave-valor, métodos y dict comprehensions.</p>
+      <p class="block-card__desc">
+        Estructura clave-valor, métodos y dict comprehensions.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--intermediate">Medio</span>
@@ -346,7 +407,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">11</div>
       <div class="block-card__icon">🔣</div>
       <h3 class="block-card__title">Conjuntos en Python</h3>
-      <p class="block-card__desc">Sets, operaciones de conjuntos y eliminación de duplicados.</p>
+      <p class="block-card__desc">
+        Sets, operaciones de conjuntos y eliminación de duplicados.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--intermediate">Medio</span>
@@ -359,7 +422,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">12</div>
       <div class="block-card__icon">🚨</div>
       <h3 class="block-card__title">Excepciones</h3>
-      <p class="block-card__desc">Manejo de errores con try/except, raise y excepciones personalizadas.</p>
+      <p class="block-card__desc">
+        Manejo de errores con try/except, raise y excepciones personalizadas.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--warning">Importante</span>
         <span class="tag tag--advanced">Avanzado</span>
@@ -372,7 +437,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">13</div>
       <div class="block-card__icon">🎨</div>
       <h3 class="block-card__title">Decoradores</h3>
-      <p class="block-card__desc">Funciones de orden superior, @property, @staticmethod y @classmethod.</p>
+      <p class="block-card__desc">
+        Funciones de orden superior, @property, @staticmethod y @classmethod.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--concept">Concepto</span>
         <span class="tag tag--advanced">Avanzado</span>
@@ -385,7 +452,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">14</div>
       <div class="block-card__icon">📤</div>
       <h3 class="block-card__title">Unpacking</h3>
-      <p class="block-card__desc">Desempaquetado de iterables, operador * y ** en Python.</p>
+      <p class="block-card__desc">
+        Desempaquetado de iterables, operador * y ** en Python.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--advanced">Avanzado</span>
@@ -398,7 +467,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">15</div>
       <div class="block-card__icon">🔝</div>
       <h3 class="block-card__title">Funciones de Orden Superior</h3>
-      <p class="block-card__desc">map(), filter(), reduce(), lambdas y programación funcional.</p>
+      <p class="block-card__desc">
+        map(), filter(), reduce(), lambdas y programación funcional.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--concept">Concepto</span>
         <span class="tag tag--advanced">Avanzado</span>
@@ -411,7 +482,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">16</div>
       <div class="block-card__icon">📁</div>
       <h3 class="block-card__title">Archivos y JSON</h3>
-      <p class="block-card__desc">Lectura, escritura de archivos y serialización con JSON.</p>
+      <p class="block-card__desc">
+        Lectura, escritura de archivos y serialización con JSON.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--code">Código</span>
         <span class="tag tag--advanced">Avanzado</span>
@@ -424,7 +497,9 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="block-card__number">17</div>
       <div class="block-card__icon">🧩</div>
       <h3 class="block-card__title">Mixins en Python</h3>
-      <p class="block-card__desc">Reutilización de código mediante clases Mixin y herencia múltiple.</p>
+      <p class="block-card__desc">
+        Reutilización de código mediante clases Mixin y herencia múltiple.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--concept">Concepto</span>
         <span class="tag tag--advanced">Avanzado</span>
@@ -433,11 +508,16 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
     </a>
 
     <!-- Bloque 18 -->
-    <a href="{{ url_for('bloque18.home') }}" class="block-card block-card--highlight fade-up">
+    <a
+      href="{{ url_for('bloque18.home') }}"
+      class="block-card block-card--highlight fade-up"
+    >
       <div class="block-card__number">18</div>
       <div class="block-card__icon">🏛️</div>
       <h3 class="block-card__title">Principios de POO</h3>
-      <p class="block-card__desc">SOLID, encapsulamiento, herencia, polimorfismo y abstracción a fondo.</p>
+      <p class="block-card__desc">
+        SOLID, encapsulamiento, herencia, polimorfismo y abstracción a fondo.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--warning">Importante</span>
         <span class="tag tag--advanced">Avanzado</span>
@@ -446,18 +526,23 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
     </a>
 
     <!-- Bloque 19 -->
-    <a href="{{ url_for('bloque19.home') }}" class="block-card block-card--highlight fade-up">
+    <a
+      href="{{ url_for('bloque19.home') }}"
+      class="block-card block-card--highlight fade-up"
+    >
       <div class="block-card__number">19</div>
       <div class="block-card__icon">📐</div>
       <h3 class="block-card__title">Relaciones UML en Código</h3>
-      <p class="block-card__desc">Asociación, agregación, composición e implementación desde diagramas UML.</p>
+      <p class="block-card__desc">
+        Asociación, agregación, composición e implementación desde diagramas
+        UML.
+      </p>
       <div class="block-card__tags">
         <span class="tag tag--concept">Concepto</span>
         <span class="tag tag--advanced">Avanzado</span>
       </div>
       <span class="block-card__arrow">→</span>
     </a>
-
   </div>
 </section>
 
@@ -472,35 +557,56 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       <div class="resource-card__icon">📖</div>
       <h4>Documentación Python</h4>
       <p>Referencia oficial del lenguaje Python 3.</p>
-      <a href="https://docs.python.org/3/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ver docs →</a>
+      <a
+        href="https://docs.python.org/3/"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--ghost btn--sm"
+        >Ver docs →</a
+      >
     </div>
     <div class="resource-card">
       <div class="resource-card__icon">🎓</div>
       <h4>Real Python</h4>
       <p>Tutoriales avanzados de Python en inglés.</p>
-      <a href="https://realpython.com/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Visitar →</a>
+      <a
+        href="https://realpython.com/"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--ghost btn--sm"
+        >Visitar →</a
+      >
     </div>
     <div class="resource-card">
       <div class="resource-card__icon">⚙️</div>
       <h4>PEP 8 Style Guide</h4>
       <p>Convenciones de estilo para código Python limpio.</p>
-      <a href="https://peps.python.org/pep-0008/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ver guía →</a>
+      <a
+        href="https://peps.python.org/pep-0008/"
+        target="_blank"
+        rel="noopener"
+        class="btn btn--ghost btn--sm"
+        >Ver guía →</a
+      >
     </div>
   </div>
 </section>
 
 <script>
   // Copy button functionality
-  document.querySelectorAll('.btn-copy').forEach(btn => {
-    btn.addEventListener('click', () => {
+  document.querySelectorAll(".btn-copy").forEach((btn) => {
+    btn.addEventListener("click", () => {
       const targetId = btn.dataset.target;
       const codeEl = document.getElementById(targetId);
       if (codeEl) {
         navigator.clipboard.writeText(codeEl.innerText).then(() => {
           const orig = btn.innerHTML;
-          btn.innerHTML = '✓ Copiado';
-          btn.style.color = '#10b981';
-          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+          btn.innerHTML = "✓ Copiado";
+          btn.style.color = "#10b981";
+          setTimeout(() => {
+            btn.innerHTML = orig;
+            btn.style.color = "";
+          }, 2000);
         });
       }
     });
