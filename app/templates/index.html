@@ -43,12 +43,12 @@ Python{% endblock %} {% block content %}
 
     <div class="hero__stats fade-up">
       <div class="stat-item">
-        <span class="stat-item__number">20</span>
+        <span class="stat-item__number">21</span>
         <span class="stat-item__label">Bloques</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item">
-        <span class="stat-item__number">61</span>
+        <span class="stat-item__number">64</span>
         <span class="stat-item__label">Ejercicios</span>
       </div>
       <div class="stat-divider"></div>
@@ -220,7 +220,7 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
 <section class="blocks-section" id="bloques">
   <div class="section-header fade-up">
     <span class="section-header__tag">Contenido</span>
-    <h2 class="section-header__title">20 Bloques de Aprendizaje</h2>
+    <h2 class="section-header__title">21 Bloques de Aprendizaje</h2>
     <p class="section-header__sub">
       Organizados progresivamente, desde fundamentos hasta conceptos avanzados
       de POO.
@@ -543,6 +543,28 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
       </div>
       <span class="block-card__arrow">→</span>
     </a>
+
+    <!-- Bloque 19 -->
+     <a
+  href="{{ url_for('bloque20.home') }}"
+  class="block-card block-card--highlight fade-up"
+>
+  <div class="block-card__number">20</div>
+  <div class="block-card__icon">🧩</div>
+  <h3 class="block-card__title">Mixins de Introspección</h3>
+  <p class="block-card__desc">
+    Mostrar nombre de la clase, listar atributos y acceder a un atributo específico
+    mediante herencia de un Mixin.
+  </p>
+  <div class="block-card__tags">
+    <span class="tag tag--concept">Concepto</span>
+    <span class="tag tag--practice">Práctica</span>
+  </div>
+  <span class="block-card__arrow">→</span>
+</a>
+
+
+    
   </div>
 </section>
 

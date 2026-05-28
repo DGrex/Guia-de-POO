@@ -1,467 +1,346 @@
 {% extends "base.html" %}
-{% block title %}PyOOP — Guía Completa de POO en Python{% endblock %}
+{% block title %}Bloque 1 — El Constructor __init__ | PyOOP{% endblock %}
 
 {% block content %}
+<div class="block-layout">
 
-<!-- ===== HERO SECTION ===== -->
-<section class="hero">
-  <div class="hero__left">
-    <div class="hero__eyebrow fade-up">
-      <span class="badge badge--amber">🐍 Python 3</span>
-      <span class="badge badge--green">✓ 100% Resueltos</span>
-      <span class="badge badge--blue">Open Source</span>
-    </div>
-
-    <h1 class="hero__title fade-up">
-      Programación<br>
-      <span class="text-gradient">Orientada a Objetos</span><br>
-      en Python
-    </h1>
-
-    <p class="hero__subtitle fade-up">
-      Una guía completa, moderna e interactiva que te lleva desde los fundamentos
-      hasta patrones avanzados. Teoría clara, código real y ejercicios resueltos.
-    </p>
-
-    <div class="hero__ctas fade-up">
-      <a href="#bloques" class="btn btn--primary btn--lg">
-        Comenzar desde cero
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar__header">
+      <a href="{{ url_for('index') }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        Volver al inicio
       </a>
-      <a href="#bloques" class="btn btn--ghost btn--lg">Ver todos los bloques</a>
     </div>
 
-    <div class="hero__stats fade-up">
-      <div class="stat-item">
-        <span class="stat-item__number">20</span>
-        <span class="stat-item__label">Bloques</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-item__number">61</span>
-        <span class="stat-item__label">Ejercicios</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <span class="stat-item__number">100%</span>
-        <span class="stat-item__label">Resueltos</span>
-      </div>
-    </div>
+    <p class="sidebar__title">Fundamentos</p>
+    <nav class="sidebar__nav">
+      <a href="{{ url_for('bloque0.home') }}" class="sidebar__link">
+        <span class="sidebar__num">00</span> Introducción a la POO
+      </a>
+      <a href="{{ url_for('bloque1.home') }}" class="sidebar__link active">
+        <span class="sidebar__num">01</span> Constructor __init__
+      </a>
+      <a href="{{ url_for('bloque2.home') }}" class="sidebar__link">
+        <span class="sidebar__num">02</span> Variables y Tipos
+      </a>
+      <a href="{{ url_for('bloque3.home') }}" class="sidebar__link">
+        <span class="sidebar__num">03</span> Operadores
+      </a>
+      <a href="{{ url_for('bloque4.home') }}" class="sidebar__link">
+        <span class="sidebar__num">04</span> Entrada y Salida
+      </a>
+    </nav>
 
-    <!-- Authors -->
-    <div class="authors fade-up">
-      <span class="authors__label">Autores:</span>
-      <div class="authors__avatars">
-        <div class="avatar" title="Denis Goyes Morán">D</div>
-        <div class="avatar avatar--2" title="Autor 2">A</div>
-        <div class="avatar avatar--3" title="Autor 3">B</div>
-        <div class="avatar avatar--4" title="Autor 4">C</div>
-        <div class="avatar avatar--5" title="Autor 5">E</div>
-      </div>
-      <span class="authors__names">Denis Goyes y equipo</span>
-    </div>
-  </div>
+    <p class="sidebar__title">Control de Flujo</p>
+    <nav class="sidebar__nav">
+      <a href="{{ url_for('bloque5.home') }}" class="sidebar__link">
+        <span class="sidebar__num">05</span> Condicionales
+      </a>
+      <a href="{{ url_for('bloque6.home') }}" class="sidebar__link">
+        <span class="sidebar__num">06</span> Bucles
+      </a>
+      <a href="{{ url_for('bloque7.home') }}" class="sidebar__link">
+        <span class="sidebar__num">07</span> Funciones
+      </a>
+    </nav>
 
-  <!-- Hero code block -->
-  <div class="hero__right fade-up">
-    <div class="code-window">
-      <div class="code-window__header">
-        <div class="code-window__dots">
-          <span class="dot dot--red"></span>
-          <span class="dot dot--yellow"></span>
-          <span class="dot dot--green"></span>
+    <p class="sidebar__title">Estructuras de Datos</p>
+    <nav class="sidebar__nav">
+      <a href="{{ url_for('bloque8.home') }}"  class="sidebar__link"><span class="sidebar__num">08</span> Listas</a>
+      <a href="{{ url_for('bloque9.home') }}"  class="sidebar__link"><span class="sidebar__num">09</span> Tuplas</a>
+      <a href="{{ url_for('bloque10.home') }}" class="sidebar__link"><span class="sidebar__num">10</span> Diccionarios</a>
+      <a href="{{ url_for('bloque11.home') }}" class="sidebar__link"><span class="sidebar__num">11</span> Conjuntos</a>
+    </nav>
+
+    <p class="sidebar__title">POO Avanzado</p>
+    <nav class="sidebar__nav">
+      <a href="{{ url_for('bloque12.home') }}" class="sidebar__link"><span class="sidebar__num">12</span> Excepciones</a>
+      <a href="{{ url_for('bloque13.home') }}" class="sidebar__link"><span class="sidebar__num">13</span> Decoradores</a>
+      <a href="{{ url_for('bloque14.home') }}" class="sidebar__link"><span class="sidebar__num">14</span> Unpacking</a>
+      <a href="{{ url_for('bloque15.home') }}" class="sidebar__link"><span class="sidebar__num">15</span> Orden Superior</a>
+      <a href="{{ url_for('bloque16.home') }}" class="sidebar__link"><span class="sidebar__num">16</span> Archivos y JSON</a>
+      <a href="{{ url_for('bloque17.home') }}" class="sidebar__link"><span class="sidebar__num">17</span> Mixins</a>
+      <a href="{{ url_for('bloque18.home') }}" class="sidebar__link"><span class="sidebar__num">18</span> Principios POO</a>
+      <a href="{{ url_for('bloque19.home') }}" class="sidebar__link"><span class="sidebar__num">19</span> Relaciones UML</a>
+    </nav>
+  </aside>
+
+  <!-- ===== CONTENT ===== -->
+  <div class="block-content prose">
+
+    <!-- Breadcrumb + header -->
+    <div class="block-header fade-up">
+      <div class="block-header__breadcrumb">
+        <a href="{{ url_for('index') }}">Inicio</a>
+        <span>›</span>
+        <span>Bloque 01</span>
+      </div>
+      <div class="block-header__number">Bloque 01 / 19</div>
+      <h1 class="block-header__title">El Constructor <code>__init__</code></h1>
+      <p class="block-header__desc">
+        Aprende a usar el método especial <code>__init__</code> para inicializar objetos
+        y entender cómo Python gestiona los atributos de instancia.
+      </p>
+
+      <!-- Progress -->
+      <div class="block-progress">
+        <span>Progreso</span>
+        <div class="block-progress__bar">
+          <div class="block-progress__fill" style="width: 10%"></div>
         </div>
-        <span class="code-window__title">estudiante.py</span>
-        <button class="btn-copy" data-target="hero-code" title="Copiar código">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          Copiar
-        </button>
+        <span>1 / 20</span>
       </div>
-      <pre id="hero-code"><code class="language-python"># 🐍 Ejemplo: Clase Estudiante con POO
+    </div>
 
-class Estudiante:
-    """Representa un estudiante con nombre y notas."""
+    <div class="divider"></div>
 
-    def __init__(self, nombre: str, carrera: str):
+    <!-- ===== TEORÍA ===== -->
+    <section class="fade-up">
+      <h2>¿Qué es el constructor <code>__init__</code>?</h2>
+
+      <p>
+        En Python, <code>__init__</code> es un <strong>método especial</strong> (también llamado "dunder method")
+        que se ejecuta automáticamente cada vez que se crea una instancia de una clase.
+        Su propósito principal es <strong>inicializar el estado interno del objeto</strong>.
+      </p>
+
+      <div class="callout callout--note">
+        <span class="callout__icon">📌</span>
+        <div class="callout__body">
+          <strong>Nota clave</strong>
+          El método <code>__init__</code> no <em>crea</em> el objeto (eso lo hace <code>__new__</code>),
+          sino que lo <em>inicializa</em> asignando valores iniciales a sus atributos.
+        </div>
+      </div>
+
+      <!-- Code block -->
+      <div class="code-block">
+        <div class="code-block__header">
+          <div class="code-block__dots">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+          </div>
+          <span class="code-block__lang">python</span>
+          <button class="btn-copy" data-target="code1">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiar
+          </button>
+        </div>
+        <pre id="code1"><code class="language-python"># Definimos una clase Persona con el constructor __init__
+class Persona:
+    def __init__(self, nombre: str, edad: int):
+        # 'self' hace referencia al objeto que se está creando
+        self.nombre = nombre   # atributo de instancia
+        self.edad = edad       # atributo de instancia
+
+    def presentarse(self) -> str:
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+
+# Al crear objetos, Python llama __init__ automáticamente
+p1 = Persona("Ana", 25)
+p2 = Persona("Luis", 30)
+
+print(p1.nombre)          # Salida: Ana
+print(p2.edad)            # Salida: 30
+print(p1.presentarse())   # Salida: Hola, soy Ana y tengo 25 años.
+</code></pre>
+      </div>
+
+      <div class="callout callout--tip">
+        <span class="callout__icon">💡</span>
+        <div class="callout__body">
+          <strong>¿Por qué usar <code>self</code>?</strong>
+          <code>self</code> es una referencia al objeto actual. Aunque su nombre es convención
+          (puedes usar cualquier nombre), es altamente recomendable seguir el estándar.
+        </div>
+      </div>
+
+      <h3>Valores por defecto en <code>__init__</code></h3>
+      <p>
+        Puedes definir valores por defecto para los parámetros del constructor,
+        lo que hace los argumentos opcionales al crear instancias:
+      </p>
+
+      <div class="code-block">
+        <div class="code-block__header">
+          <div class="code-block__dots">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+          </div>
+          <span class="code-block__lang">python</span>
+          <button class="btn-copy" data-target="code2">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copiar
+          </button>
+        </div>
+        <pre id="code2"><code class="language-python">class Producto:
+    def __init__(self, nombre: str, precio: float = 0.0, stock: int = 0):
         self.nombre = nombre
-        self.carrera = carrera
-        self.notas: list[float] = []
-
-    def agregar_nota(self, nota: float) -> None:
-        """Agrega una nota a la lista del estudiante."""
-        if 0 <= nota <= 10:
-            self.notas.append(nota)
-
-    def promedio(self) -> float:
-        """Calcula el promedio de notas."""
-        if not self.notas:
-            return 0.0
-        return round(sum(self.notas) / len(self.notas), 2)
+        self.precio = precio
+        self.stock  = stock
 
     def __repr__(self) -> str:
-        return f"Estudiante({self.nombre!r}, promedio={self.promedio()})"
+        return f"Producto({self.nombre!r}, precio={self.precio}, stock={self.stock})"
 
 
-# Uso de la clase
-denis = Estudiante("Denis", "Ing. Software")
-denis.agregar_nota(9.5)
-denis.agregar_nota(8.8)
-denis.agregar_nota(10.0)
+# Con todos los argumentos
+cafe = Producto("Café", 2.50, 100)
 
-print(denis.promedio())   # ✅ 9.43
-print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
+# Solo con el nombre (usa valores por defecto)
+nuevo = Producto("Sin definir")
+
+print(cafe)    # Producto('Café', precio=2.5, stock=100)
+print(nuevo)   # Producto('Sin definir', precio=0.0, stock=0)
 </code></pre>
+      </div>
+    </section>
+
+    <!-- ===== EJERCICIOS ===== -->
+    <section class="fade-up">
+      <h2>Ejercicios Resueltos</h2>
+      <p>Practica los conceptos aprendidos con estos ejercicios comentados paso a paso.</p>
+
+      <div class="exercises">
+
+        <!-- Ejercicio 1 -->
+        <div class="exercise-card">
+          <div class="exercise-card__header">
+            <span class="exercise-card__num">Ejercicio 01</span>
+            <span class="exercise-card__title">Crea una clase <code>Coche</code> con atributos <code>marca</code> y <code>modelo</code></span>
+          </div>
+          <div class="exercise-card__body">
+            <div class="code-block">
+              <div class="code-block__header">
+                <div class="code-block__dots">
+                  <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+                </div>
+                <span class="code-block__lang">python</span>
+                <button class="btn-copy" data-target="ex1"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+              </div>
+              <pre id="ex1"><code class="language-python">class Coche:
+    def __init__(self, marca: str, modelo: str):
+        # Guardamos marca y modelo como atributos de instancia
+        self.marca  = marca
+        self.modelo = modelo
+
+    def descripcion(self) -> str:
+        return f"{self.marca} {self.modelo}"
+
+
+# Creamos dos coches con distintos valores
+c1 = Coche("Toyota", "Corolla")
+c2 = Coche("Honda", "Civic")
+
+print(c1.marca)          # Toyota
+print(c2.modelo)         # Civic
+print(c1.descripcion())  # Toyota Corolla
+</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="exercise-card">
+          <div class="exercise-card__header">
+            <span class="exercise-card__num">Ejercicio 02</span>
+            <span class="exercise-card__title">¿Qué pasa si no defines <code>__init__</code>?</span>
+          </div>
+          <div class="exercise-card__body">
+            <div class="callout callout--warning">
+              <span class="callout__icon">⚠️</span>
+              <div class="callout__body">
+                Si no defines <code>__init__</code>, Python usa el constructor heredado de <code>object</code>
+                que no inicializa ningún atributo personalizado.
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-block__header">
+                <div class="code-block__dots">
+                  <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+                </div>
+                <span class="code-block__lang">python</span>
+                <button class="btn-copy" data-target="ex2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copiar</button>
+              </div>
+              <pre id="ex2"><code class="language-python">class ClaseSinInit:
+    pass   # Sin __init__
+
+
+obj = ClaseSinInit()  # Funciona, pero sin atributos
+
+# Podemos asignar atributos manualmente (mala práctica)
+obj.nombre = "Ejemplo"
+print(obj.nombre)  # Ejemplo
+
+# Sin embargo, esto es inconsistente y difícil de mantener.
+# ✅ Siempre es mejor definir __init__ para garantizar
+# que todos los objetos tengan los mismos atributos.
+</code></pre>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /exercises -->
+    </section>
+
+    <!-- ===== CONCEPTOS CLAVE ===== -->
+    <section class="fade-up">
+      <h2>Conceptos Clave</h2>
+
+      <div class="callout callout--tip">
+        <span class="callout__icon">📐</span>
+        <div class="callout__body">
+          <strong>Resumen visual del constructor</strong>
+          <ul style="margin-top:0.5rem; padding-left:1.2rem;">
+            <li><code>__init__(self, ...)</code> se ejecuta al crear un objeto con <code>Clase(args)</code></li>
+            <li><code>self</code> representa la instancia del objeto actual</li>
+            <li>Los atributos definidos con <code>self.attr</code> son atributos de instancia</li>
+            <li>Puedes definir valores por defecto para parámetros opcionales</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <div class="block-nav fade-up">
+      <a href="{{ url_for('bloque0.home') }}" class="block-nav__btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        Bloque 00: Intro POO
+      </a>
+
+      <a href="{{ url_for('index') }}" class="block-nav__btn block-nav__btn--home">
+        ⬡ Inicio
+      </a>
+
+      <a href="{{ url_for('bloque2.home') }}" class="block-nav__btn block-nav__btn--next">
+        Bloque 02: Variables
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
     </div>
 
-    <!-- Floating decorative pills -->
-    <div class="hero__pills">
-      <span class="pill pill--amber">Encapsulamiento</span>
-      <span class="pill pill--green">Herencia</span>
-      <span class="pill pill--blue">Polimorfismo</span>
-      <span class="pill pill--purple">Abstracción</span>
-    </div>
-  </div>
-</section>
-
-<!-- ===== INFO BOXES ===== -->
-<section class="info-strip fade-up">
-  <div class="info-box info-box--tip">
-    <span class="info-box__icon">💡</span>
-    <div>
-      <strong>Tip:</strong> Cada bloque incluye teoría, ejemplos de código y ejercicios resueltos con comentarios detallados.
-    </div>
-  </div>
-  <div class="info-box info-box--note">
-    <span class="info-box__icon">📌</span>
-    <div>
-      <strong>Nota:</strong> Esta guía asume conocimientos básicos de Python. ¡Empezar desde el Bloque 0!
-    </div>
-  </div>
-  <div class="info-box info-box--warning">
-    <span class="info-box__icon">⚡</span>
-    <div>
-      <strong>Importante:</strong> Se recomienda practicar cada ejercicio antes de ver la solución.
-    </div>
-  </div>
-</section>
-
-<!-- ===== BLOQUES GRID ===== -->
-<section class="blocks-section" id="bloques">
-  <div class="section-header fade-up">
-    <span class="section-header__tag">Contenido</span>
-    <h2 class="section-header__title">20 Bloques de Aprendizaje</h2>
-    <p class="section-header__sub">Organizados progresivamente, desde fundamentos hasta conceptos avanzados de POO.</p>
-  </div>
-
-  <!-- Progress bar decorative -->
-  <div class="progress-track fade-up">
-    <div class="progress-track__bar"></div>
-    <span class="progress-track__label">Fundamentos → Conceptos Avanzados</span>
-  </div>
-
-  <div class="blocks-grid" id="blocksGrid">
-
-    <!-- Bloque 0 -->
-    <a href="{{ url_for('bloque0.home') }}" class="block-card block-card--featured fade-up">
-      <div class="block-card__number">00</div>
-      <div class="block-card__icon">🚀</div>
-      <h3 class="block-card__title">Introducción a la POO</h3>
-      <p class="block-card__desc">Qué es la Programación Orientada a Objetos, sus pilares y ventajas.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--concept">Concepto</span>
-        <span class="tag tag--beginner">Básico</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 1 -->
-    <a href="{{ url_for('bloque1.home') }}" class="block-card fade-up">
-      <div class="block-card__number">01</div>
-      <div class="block-card__icon">🏗️</div>
-      <h3 class="block-card__title">El Constructor __init__</h3>
-      <p class="block-card__desc">Cómo inicializar objetos y asignar atributos de instancia.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--beginner">Básico</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 2 -->
-    <a href="{{ url_for('bloque2.home') }}" class="block-card fade-up">
-      <div class="block-card__number">02</div>
-      <div class="block-card__icon">📦</div>
-      <h3 class="block-card__title">Variables y Tipos de Datos</h3>
-      <p class="block-card__desc">Tipos primitivos, colecciones y tipado dinámico en Python.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--beginner">Básico</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 3 -->
-    <a href="{{ url_for('bloque3.home') }}" class="block-card fade-up">
-      <div class="block-card__number">03</div>
-      <div class="block-card__icon">➕</div>
-      <h3 class="block-card__title">Operadores en Python</h3>
-      <p class="block-card__desc">Aritméticos, lógicos, de comparación y asignación.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--beginner">Básico</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 4 -->
-    <a href="{{ url_for('bloque4.home') }}" class="block-card fade-up">
-      <div class="block-card__number">04</div>
-      <div class="block-card__icon">🖥️</div>
-      <h3 class="block-card__title">Entrada y Salida</h3>
-      <p class="block-card__desc">Funciones input() y print(), formato de cadenas con f-strings.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--beginner">Básico</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 5 -->
-    <a href="{{ url_for('bloque5.home') }}" class="block-card fade-up">
-      <div class="block-card__number">05</div>
-      <div class="block-card__icon">🔀</div>
-      <h3 class="block-card__title">Condicionales</h3>
-      <p class="block-card__desc">Control de flujo con if, elif, else y operador ternario.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--intermediate">Medio</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 6 -->
-    <a href="{{ url_for('bloque6.home') }}" class="block-card fade-up">
-      <div class="block-card__number">06</div>
-      <div class="block-card__icon">🔁</div>
-      <h3 class="block-card__title">Bucles while y for</h3>
-      <p class="block-card__desc">Iteración, break, continue y comprensión de listas.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--intermediate">Medio</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 7 -->
-    <a href="{{ url_for('bloque7.home') }}" class="block-card fade-up">
-      <div class="block-card__number">07</div>
-      <div class="block-card__icon">⚙️</div>
-      <h3 class="block-card__title">Funciones en Python</h3>
-      <p class="block-card__desc">Definición, parámetros, retorno de valores y scope.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--intermediate">Medio</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 8 -->
-    <a href="{{ url_for('bloque8.home') }}" class="block-card fade-up">
-      <div class="block-card__number">08</div>
-      <div class="block-card__icon">📋</div>
-      <h3 class="block-card__title">Listas en Python</h3>
-      <p class="block-card__desc">Métodos de listas, slicing, ordenamiento y list comprehensions.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--intermediate">Medio</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 9 -->
-    <a href="{{ url_for('bloque9.home') }}" class="block-card fade-up">
-      <div class="block-card__number">09</div>
-      <div class="block-card__icon">🔒</div>
-      <h3 class="block-card__title">Tuplas en Python</h3>
-      <p class="block-card__desc">Colecciones inmutables, desempaquetado y uso práctico.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--intermediate">Medio</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 10 -->
-    <a href="{{ url_for('bloque10.home') }}" class="block-card fade-up">
-      <div class="block-card__number">10</div>
-      <div class="block-card__icon">🗂️</div>
-      <h3 class="block-card__title">Diccionarios</h3>
-      <p class="block-card__desc">Estructura clave-valor, métodos y dict comprehensions.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--intermediate">Medio</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 11 -->
-    <a href="{{ url_for('bloque11.home') }}" class="block-card fade-up">
-      <div class="block-card__number">11</div>
-      <div class="block-card__icon">🔣</div>
-      <h3 class="block-card__title">Conjuntos en Python</h3>
-      <p class="block-card__desc">Sets, operaciones de conjuntos y eliminación de duplicados.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--intermediate">Medio</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 12 -->
-    <a href="{{ url_for('bloque12.home') }}" class="block-card fade-up">
-      <div class="block-card__number">12</div>
-      <div class="block-card__icon">🚨</div>
-      <h3 class="block-card__title">Excepciones</h3>
-      <p class="block-card__desc">Manejo de errores con try/except, raise y excepciones personalizadas.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--warning">Importante</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 13 -->
-    <a href="{{ url_for('bloque13.home') }}" class="block-card fade-up">
-      <div class="block-card__number">13</div>
-      <div class="block-card__icon">🎨</div>
-      <h3 class="block-card__title">Decoradores</h3>
-      <p class="block-card__desc">Funciones de orden superior, @property, @staticmethod y @classmethod.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--concept">Concepto</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 14 -->
-    <a href="{{ url_for('bloque14.home') }}" class="block-card fade-up">
-      <div class="block-card__number">14</div>
-      <div class="block-card__icon">📤</div>
-      <h3 class="block-card__title">Unpacking</h3>
-      <p class="block-card__desc">Desempaquetado de iterables, operador * y ** en Python.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 15 -->
-    <a href="{{ url_for('bloque15.home') }}" class="block-card fade-up">
-      <div class="block-card__number">15</div>
-      <div class="block-card__icon">🔝</div>
-      <h3 class="block-card__title">Funciones de Orden Superior</h3>
-      <p class="block-card__desc">map(), filter(), reduce(), lambdas y programación funcional.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--concept">Concepto</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 16 -->
-    <a href="{{ url_for('bloque16.home') }}" class="block-card fade-up">
-      <div class="block-card__number">16</div>
-      <div class="block-card__icon">📁</div>
-      <h3 class="block-card__title">Archivos y JSON</h3>
-      <p class="block-card__desc">Lectura, escritura de archivos y serialización con JSON.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--code">Código</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 17 -->
-    <a href="{{ url_for('bloque17.home') }}" class="block-card fade-up">
-      <div class="block-card__number">17</div>
-      <div class="block-card__icon">🧩</div>
-      <h3 class="block-card__title">Mixins en Python</h3>
-      <p class="block-card__desc">Reutilización de código mediante clases Mixin y herencia múltiple.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--concept">Concepto</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 18 -->
-    <a href="{{ url_for('bloque18.home') }}" class="block-card block-card--highlight fade-up">
-      <div class="block-card__number">18</div>
-      <div class="block-card__icon">🏛️</div>
-      <h3 class="block-card__title">Principios de POO</h3>
-      <p class="block-card__desc">SOLID, encapsulamiento, herencia, polimorfismo y abstracción a fondo.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--warning">Importante</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-    <!-- Bloque 19 -->
-    <a href="{{ url_for('bloque19.home') }}" class="block-card block-card--highlight fade-up">
-      <div class="block-card__number">19</div>
-      <div class="block-card__icon">📐</div>
-      <h3 class="block-card__title">Relaciones UML en Código</h3>
-      <p class="block-card__desc">Asociación, agregación, composición e implementación desde diagramas UML.</p>
-      <div class="block-card__tags">
-        <span class="tag tag--concept">Concepto</span>
-        <span class="tag tag--advanced">Avanzado</span>
-      </div>
-      <span class="block-card__arrow">→</span>
-    </a>
-
-  </div>
-</section>
-
-<!-- ===== RECURSOS SECTION ===== -->
-<section class="resources-section fade-up" id="recursos">
-  <div class="section-header">
-    <span class="section-header__tag">Extras</span>
-    <h2 class="section-header__title">Recursos Adicionales</h2>
-  </div>
-  <div class="resources-grid">
-    <div class="resource-card">
-      <div class="resource-card__icon">📖</div>
-      <h4>Documentación Python</h4>
-      <p>Referencia oficial del lenguaje Python 3.</p>
-      <a href="https://docs.python.org/3/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ver docs →</a>
-    </div>
-    <div class="resource-card">
-      <div class="resource-card__icon">🎓</div>
-      <h4>Real Python</h4>
-      <p>Tutoriales avanzados de Python en inglés.</p>
-      <a href="https://realpython.com/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Visitar →</a>
-    </div>
-    <div class="resource-card">
-      <div class="resource-card__icon">⚙️</div>
-      <h4>PEP 8 Style Guide</h4>
-      <p>Convenciones de estilo para código Python limpio.</p>
-      <a href="https://peps.python.org/pep-0008/" target="_blank" rel="noopener" class="btn btn--ghost btn--sm">Ver guía →</a>
-    </div>
-  </div>
-</section>
+  </div><!-- /block-content -->
+</div><!-- /block-layout -->
 
 <script>
-  // Copy button functionality
+  // Highlight active sidebar link
+  const links = document.querySelectorAll('.sidebar__link');
+  links.forEach(link => {
+    if (link.href === window.location.href) {
+      link.classList.add('active');
+    }
+  });
+
+  // Copy buttons
   document.querySelectorAll('.btn-copy').forEach(btn => {
     btn.addEventListener('click', () => {
-      const targetId = btn.dataset.target;
-      const codeEl = document.getElementById(targetId);
-      if (codeEl) {
-        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+      const el = document.getElementById(btn.dataset.target);
+      if (el) {
+        navigator.clipboard.writeText(el.innerText).then(() => {
           const orig = btn.innerHTML;
-          btn.innerHTML = '✓ Copiado';
+          btn.textContent = '✓ Copiado';
           btn.style.color = '#10b981';
           setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
         });
@@ -469,5 +348,4 @@ print(repr(denis))        # ✅ Estudiante('Denis', promedio=9.43)
     });
   });
 </script>
-
 {% endblock %}

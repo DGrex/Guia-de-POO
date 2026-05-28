@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+{% block title %}PyOOP — Bloque 20: Mixins de Introspección en Código Python{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+  <div class="hero__left">
+    <div class="hero__eyebrow fade-up">
+      <span class="badge badge--amber">Bloque 20</span>
+      <span class="badge badge--green">✓ Introspección Avanzada</span>
+      <span class="badge badge--blue">Mixins Reutilizables</span>
+    </div>
+
+    <h1 class="hero__title fade-up">
+      Mixins de<br>
+      <span class="text-gradient">Introspección</span><br>
+    </h1>
+
+    <p class="hero__subtitle fade-up">
+      Inyecta capacidades dinámicas de auto-exploración en tus objetos en tiempo de ejecución.
+      Comprende cómo auditar y listar estructuras de clases dominando el uso técnico de métodos mágicos y funciones del sistema como <code>vars()</code>, <code>hasattr()</code> y <code>getattr()</code> mediante herencia auxiliar.
+    </p>
+
+    <div class="hero__ctas fade-up">
+      <a href="#ejercicios" class="btn btn--primary btn--lg">
+        Ir a Ejercicios
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </a>
+      <a href="{{ url_for('index') }}" class="btn btn--ghost btn--lg">⬅ Volver al inicio</a>
+    </div>
+  </div>
+
+  <div class="hero__right fade-up">
+    <div class="code-window">
+      <div class="code-window__header">
+        <div class="code-window__dots">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+        </div>
+        <span class="code-window__title">mostrar_mixin.py</span>
+        <button class="btn-copy" data-target="code-mixin-hero" title="Copiar código">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Copiar
+        </button>
+      </div>
+      <pre id="code-mixin-hero"><code class="language-python">class MostrarMixin:
+    def mostrar(self, atributo=None):
+        print(f"Clase: {self.__class__.__name__}")
+        if atributo:
+            if hasattr(self, atributo):
+                print(f"{atributo}: {getattr(self, atributo)}")
+            else:
+                print(f"Atributo '{atributo}' no existe en {self.__class__.__name__}")
+        else:
+            for nombre, valor in vars(self).items():
+                print(f"{nombre}: {valor}")
+</code></pre>
+    </div>
+
+    <div class="hero__pills">
+      <span class="pill pill--amber">vars()</span>
+      <span class="pill pill--green">hasattr()</span>
+      <span class="pill pill--blue">getattr()</span>
+      <span class="pill pill--purple">__class__</span>
+    </div>
+  </div>
+</section>
+
+<section class="info-strip fade-up">
+  <div class="info-box info-box--tip">
+    <span class="info-box__icon">💡</span>
+    <div>
+      <strong>Concepto de Mixin:</strong> Un Mixin es una clase auxiliar diseñada exclusivamente para proveer un comportamiento empaquetado y reutilizable a otras subclases mediante herencia. No busca modelar una relación de identidad ("es un"), sino añadir capacidades opcionales y transversales al ecosistema de tus objetos de software.
+    </div>
+  </div>
+</section>
+
+<section class="blocks-section" id="teoria-introspeccion" style="padding-bottom: 0;">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Teoría</span>
+    <h2 class="section-header__title">Herramientas de Auditoría Interna</h2>
+  </div>
+
+  <div class="blocks-grid">
+    
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">1. Identificación Dinámica de Clase</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Mediante el acceso a los metadatos de la instancia a través del atributo mágico de sistema <code>self.__class__.__name__</code>, el programa puede conocer el string exacto del molde original desde el cual se instanció el objeto en ejecución.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">meta_clase.py</span><button class="btn-copy" data-target="code-t-metaclase">Copiar</button></div>
+        <pre id="code-t-metaclase" style="margin: 0;"><code class="language-python">class Ejemplo:
+    pass
+
+obj = Ejemplo()
+print(obj.__class__.__name__)  # Salida: Ejemplo
+</code></pre>
+      </div>
+    </div>
+
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">2. Mapeo del Estado Completo (Función vars)</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> La función integrada <code>vars(objeto)</code> expone el diccionario interno o mapa de variables (<code>__dict__</code>) de la instancia. Esto permite iterar de forma dinámica sobre las llaves (nombres de atributos) y valores actuales guardados en memoria.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">mapeo_vars.py</span><button class="btn-copy" data-target="code-t-vars">Copiar</button></div>
+        <pre id="code-t-vars" style="margin: 0;"><code class="language-python">class Producto:
+    def __init__(self, sku, precio):
+        self.sku = sku
+        self.precio = precio
+
+p = Producto("A100", 19.99)
+print(vars(p))  # Salida: {'sku': 'A100', 'precio': 19.99}
+</code></pre>
+      </div>
+    </div>
+
+    <div class="block-card block-card--highlight fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <h3 class="block-card__title">3. Extracción Segura mediante Cadenas</h3>
+      <p class="block-card__desc" style="color: var(--text-muted); font-size: 1rem; line-height: 1.6; margin-top: 0.5rem; margin-bottom: 1rem;">
+        <strong>Concepto:</strong> Las funciones <code>hasattr()</code> y <code>getattr()</code> permiten comprobar la presencia de una propiedad y extraer su valor usando un parámetro string. Esto ayuda a crear consultas lógicas flexibles sin arrojar excepciones críticas de tipo <code>AttributeError</code>.
+      </p>
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header"><span class="code-window__title">extraccion_segura.py</span><button class="btn-copy" data-target="code-t-getattr">Copiar</button></div>
+        <pre id="code-t-getattr" style="margin: 0;"><code class="language-python"># Uso del MostrarMixin heredado por un Cliente corporativo
+class Cliente(MostrarMixin):
+    def __init__(self, nombre, correo):
+        self.nombre = nombre
+        self.correo = correo
+
+c = Cliente("Luis", "luis@mail.com")
+c.mostrar("correo")  # Salida aislando el atributo: correo: luis@mail.com
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="blocks-section" id="ejercicios">
+  <div class="section-header fade-up">
+    <span class="section-header__tag">Práctica</span>
+    <h2 class="section-header__title">Ejercicios Resueltos</h2>
+    <p class="section-header__sub">Inspecciona las implementaciones de herencia de mixins auxiliares, inyecciones de atributos y control predictivo de errores en consola.</p>
+  </div>
+
+  <div class="blocks-grid">
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">01</div>
+      <div class="block-card__icon">👤</div>
+      <h3 class="block-card__title">Ejercicio 1: Herencia estructural de Mixin</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Crea una clase Persona que herede de MostrarMixin y tenga atributos nombre y edad. Usa mostrar() para imprimirlos en consola.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">clase_persona.py</span>
+          <button class="btn-copy" data-target="code-ejercicio1" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio1" style="margin: 0; overflow-x: auto;"><code class="language-python">class Persona(MostrarMixin):
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+p1 = Persona("Carlos", 30)
+p1.mostrar()
+# Salida:
+# Clase: Persona
+# nombre: Carlos
+# edad: 30
+</code></pre>
+      </div>
+    </div>
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">02</div>
+      <div class="block-card__icon">🌆</div>
+      <h3 class="block-card__title">Ejercicio 2: Consulta selectiva de atributos por filtro</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Agrega un atributo ciudad a la clase Persona y realiza la prueba enviando un argumento de aislamiento con la invocación mostrar("ciudad").</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">persona_ciudad.py</span>
+          <button class="btn-copy" data-target="code-ejercicio2" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio2" style="margin: 0; overflow-x: auto;"><code class="language-python">class Persona(MostrarMixin):
+    def __init__(self, nombre, edad, ciudad):
+        self.nombre = nombre
+        self.edad = edad
+        self.ciudad = ciudad
+
+p2 = Persona("Ana", 25, "Milagro")
+p2.mostrar("ciudad")
+# Salida:
+# Clase: Persona
+# ciudad: Milagro
+</code></pre>
+      </div>
+    </div>
+
+    <div class="block-card block-card--featured fade-up" style="grid-column: 1 / -1; cursor: default; min-width: 0;">
+      <div class="block-card__number">03</div>
+      <div class="block-card__icon">⚠️</div>
+      <h3 class="block-card__title">Ejercicio 3: Intercepción de propiedades inexistentes</h3>
+      <p class="block-card__desc" style="margin-bottom: 1.5rem;">Intenta acceder a un atributo inexistente como "salario" mediante la llamada de filtrado y observa el mensaje de aviso controlado.</p>
+      
+      <div class="code-window" style="text-align: left; width: 100%; overflow-x: auto;">
+        <div class="code-window__header">
+          <span class="code-window__title">error_controlado.py</span>
+          <button class="btn-copy" data-target="code-ejercicio3" title="Copiar código">Copiar</button>
+        </div>
+        <pre id="code-ejercicio3" style="margin: 0; overflow-x: auto;"><code class="language-python"># Usando la instancia anterior p2 de la clase Persona
+p2.mostrar("salario")
+# Salida:
+# Clase: Persona
+# Atributo 'salario' no existe en Persona
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Funcionalidad para todos los botones de copiar del bloque
+  document.querySelectorAll('.btn-copy').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      const codeEl = document.getElementById(targetId);
+      if (codeEl) {
+        navigator.clipboard.writeText(codeEl.innerText).then(() => {
+          const orig = btn.innerHTML;
+          btn.innerHTML = '✓ Copiado';
+          btn.style.color = '#10b981';
+          setTimeout(() => { btn.innerHTML = orig; btn.style.color = ''; }, 2000);
+        });
+      }
+    });
+  });
+</script>
+
+{% endblock %}

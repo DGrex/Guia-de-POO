@@ -67,5 +67,8 @@ def create_app():
 
     from app.blueprints.bloque19.routes import bloque19_bp
     app.register_blueprint(bloque19_bp, url_prefix="/bloque19")
+    
+    from app.blueprints.bloque20.routes import bloque20_bp
+    app.register_blueprint(bloque20_bp, url_prefix="/bloque20")
 
     return app
